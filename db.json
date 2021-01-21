@@ -1,0 +1,116 @@
+{
+    "songs": [
+      {
+        "id": 1,
+        "artist": "Drake",
+        "album": "Scorpion",
+        "title": "God's Plan",
+        "isWinner": false 
+      },
+      {
+        "id": 2,
+        "artist": "Drake",
+        "album": "High Off Life",
+        "title": "Life is Good",
+        "isWinner": false 
+      },
+      {
+        "id": 3,
+        "artist": "Drake",
+        "album": "Certified Lover Boy",
+        "title": "Laugh Now Cry Later",
+        "isWinner": false 
+      },
+      {
+        "id": 4,
+        "artist": "Drake",
+        "album": "Passionfruit",
+        "title": "More Life",
+        "isWinner": false 
+      },
+      {
+        "id": 5,
+        "artist": "Drake",
+        "album": "Views",
+        "title": "One Dance",
+        "isWinner": false 
+      },
+      {
+        "id": 6,
+        "artist": "Drake",
+        "album": "Views",
+        "title": "Pop Style",
+        "isWinner": false 
+      },
+      {
+        "id": 7,
+        "artist": "Drake",
+        "album": "Views",
+        "title": "Too Good",
+        "isWinner": false 
+      },
+      {
+        "id": 8,
+        "artist": "Drake",
+        "album": "Views",
+        "title": "Hotline Bling",
+        "isWinner": false 
+      },
+      {
+        "id": 9,
+        "artist": "Drake",
+        "album": "If You're Reading This You're Too Late",
+        "title": "Energy",
+        "isWinner": false 
+      },
+      {
+        "id": 10,
+        "artist": "Drake",
+        "album": "Nothing Was The Same",
+        "title": "Started From the Bottom",
+        "isWinner": false 
+      },
+      {
+        "id": 11,
+        "artist": "Drake",
+        "album": "Nothing Was the Same",
+        "title": "Hold On, We're Going Home",
+        "isWinner": false 
+      },
+      {
+        "id": 12,
+        "artist": "Drake",
+        "album": "Take Care",
+        "title": "Headlines",
+        "isWinner": false 
+      },
+      {
+        "id": 13,
+        "artist": "Drake",
+        "album": "Take Care",
+        "title": "Marvin's Room",
+        "isWinner": false 
+      },
+      {
+        "id": 14,
+        "artist": "Drake",
+        "album": "Thank Me Later",
+        "title": "Over",
+        "isWinner": false 
+      },
+      {
+        "id": 15,
+        "artist": "Drake",
+        "album": "Thank Me Later",
+        "title": "Shut it Down",
+        "isWinner": false 
+      },
+      {
+        "id": 16,
+        "artist": "Drake",
+        "album": "Thank Me Later",
+        "title": "Find Your Love",
+        "isWinner": false 
+      }
+    ]
+}
