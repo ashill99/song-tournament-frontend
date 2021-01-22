@@ -1,18 +1,27 @@
 import React from 'react';
 import SongCard from './SongCard';
 
-function RoundOne({ filteredWinners }) {
-    
-    const songChoices = filteredWinners
-    .map((song) => <SongCard 
+function RoundOne({songs, setSongs }) {
+
+    function handleVotes(updatedSong) {
+        const updatedSongs = songs.map((song) =>
+          song.id === updatedSong.id ? updatedSong : song
+        );
+        setSongs(updatedSongs);
+      }
+
+    const songChoices = songs
+        .map((song) => (song.votes === 0 ? 
+                    <SongCard 
                     key={song.id}
+                    id={song.id}
                     title={song.title}
                     artist={song.artist}
                     album={song.album}
-                    isWinner={song.isWinner}
-                    />
+                    votes={song.votes}
+                    onUpdateSong={handleVotes}
+                    /> : null)
         )
-console.log(songChoices)
 
     return (
         <div>{songChoices}</div>

@@ -15,3 +15,13 @@ code {
 .song-card {
   border-style: dotted;
 }
+
+.song-card-two {
+  border-style: dotted;
+  background-color: aquamarine;
+}
+
+.song-card-three {
+  border-style: dotted;
+  background-color: rgb(206, 172, 88);
+}

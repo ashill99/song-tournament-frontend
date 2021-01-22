@@ -7,33 +7,21 @@ import FinalRound from './FinalRound'
 
 function App() {
 
-  // Test one two three // four five six
-
   const [songs, setSongs] = useState([])
-  const [winnerR1, setWinnerR1] = useState(false)
-  const [winnerR2, setWinnerR2] = useState(false)
-  const [winnerR3, setWinnerR3] = useState(false)
-  const [winnerR4, setWinnerR4] = useState(false)
-
-
-
+  
     useEffect(() => {
         fetch("http://localhost:4000/songs")
           .then((response) => response.json())
           .then(setSongs)
       }, [])
-
-    const filteredWinners = songs.filter((song) => !song.isWinner)
-      
-    function handleWinnerVote(id) {
-      
-    }
+    
+      console.log(songs)
     
   return (
     <div>
-      <RoundOne filteredWinners={filteredWinners}/>
-      <RoundTwo />
-      <RoundThree />
+      <RoundOne songs={songs} setSongs={setSongs} />
+      <RoundTwo songs={songs} setSongs={setSongs} />
+      <RoundThree songs={songs} setSongs={setSongs} />
       <RoundFour />
       <FinalRound />
     </div>
