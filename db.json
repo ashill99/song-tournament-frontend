@@ -6,10 +6,10 @@
       "album": "Scorpion",
       "title": "God's Plan",
       "votes": 7,
-      "round1winner": false,
-      "round2winner": false,
-      "round3winner": false,
-      "round4winner": false,
+      "round1winner": true,
+      "round2winner": true,
+      "round3winner": true,
+      "round4winner": true,
       "round5winner": false
     },
     {
@@ -54,7 +54,7 @@
       "album": "Views",
       "title": "One Dance",
       "votes": 0,
-      "round1winner": false,
+      "round1winner": true,
       "round2winner": false,
       "round3winner": false,
       "round4winner": false,

@@ -13,13 +13,21 @@ code {
     monospace;
 }
 
-.round-one {
+/* .round-one {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: 100px 20px repeat(3, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 200px; 
-}
+} */
+
+/* .round-two {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: 100px 20px repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 200px; 
+} */
 
 
 .song-card {  

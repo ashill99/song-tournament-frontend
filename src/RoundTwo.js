@@ -46,7 +46,7 @@ function RoundTwo({songs, setSongs }) {
         )
 
     return (
-        <div>
+        <div className="round-two">
           {songChoices}
         </div>
     )
