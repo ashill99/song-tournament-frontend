@@ -7,13 +7,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-.song-card {
+.round-one {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 100px 20px repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 200px; 
+}
+
+
+.song-card {  
+  flex-direction: row;
+  /* width: 80px; */
   border-style: dotted;
+  /* margin-bottom: 20px;  */
 }
 
 .song-card-two {
@@ -24,4 +37,14 @@ code {
 .song-card-three {
   border-style: dotted;
   background-color: rgb(206, 172, 88);
+}
+
+.song-card-four {
+  border-style: dotted;
+  background-color: rgb(60, 129, 103);
+}
+
+.song-card-five {
+  border-style: dotted;
+  background-color: rgb(196, 78, 143);
 }

@@ -22,8 +22,8 @@ function App() {
       <RoundOne songs={songs} setSongs={setSongs} />
       <RoundTwo songs={songs} setSongs={setSongs} />
       <RoundThree songs={songs} setSongs={setSongs} />
-      <RoundFour />
-      <FinalRound />
+      <RoundFour songs={songs} setSongs={setSongs}/>
+      <FinalRound songs={songs} setSongs={setSongs} />
     </div>
   )
 }

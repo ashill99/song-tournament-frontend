@@ -5,113 +5,192 @@
       "artist": "Drake",
       "album": "Scorpion",
       "title": "God's Plan",
-      "votes": 2,
-      "likes": null
+      "votes": 7,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 2,
       "artist": "Drake",
       "album": "High Off Life",
       "title": "Life is Good",
-      "votes": 1
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 3,
       "artist": "Drake",
       "album": "Certified Lover Boy",
       "title": "Laugh Now Cry Later",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 4,
       "artist": "Drake",
       "album": "Passionfruit",
       "title": "More Life",
-      "votes": 1
+      "votes": 0,
+      "round1winner": true,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 5,
       "artist": "Drake",
       "album": "Views",
       "title": "One Dance",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 6,
       "artist": "Drake",
       "album": "Views",
       "title": "Pop Style",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 7,
       "artist": "Drake",
       "album": "Views",
       "title": "Too Good",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 8,
       "artist": "Drake",
       "album": "Views",
       "title": "Hotline Bling",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 9,
       "artist": "Drake",
       "album": "If You're Reading This You're Too Late",
       "title": "Energy",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 10,
       "artist": "Drake",
       "album": "Nothing Was The Same",
       "title": "Started From the Bottom",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 11,
       "artist": "Drake",
       "album": "Nothing Was the Same",
       "title": "Hold On, We're Going Home",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 12,
       "artist": "Drake",
       "album": "Take Care",
       "title": "Headlines",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 13,
       "artist": "Drake",
       "album": "Take Care",
       "title": "Marvin's Room",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 14,
       "artist": "Drake",
       "album": "Thank Me Later",
       "title": "Over",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 15,
       "artist": "Drake",
       "album": "Thank Me Later",
       "title": "Shut it Down",
-      "votes": 0
+      "votes": 0,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     },
     {
       "id": 16,
       "artist": "Drake",
       "album": "Thank Me Later",
       "title": "Find Your Love",
-      "votes": 0
+      "votes": 1,
+      "round1winner": false,
+      "round2winner": false,
+      "round3winner": false,
+      "round4winner": false,
+      "round5winner": false
     }
   ]
 }
