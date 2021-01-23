@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 
@@ -13,12 +14,26 @@ code {
     monospace;
 }
 
+.parent {
+  display: grid;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  justify-content:center;
+}
+
 .round-one {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: 100px 20px repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 70px; 
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: 100px 20px repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 70px;
+  grid-area: 1 / 1 / 6 / 2;
+  display:flex;
+  width:200px;
+  list-style:none;
+  padding:0;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .round-two {
@@ -27,6 +42,13 @@ code {
   grid-template-rows: 100px 20px repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 70px; 
+  grid-area: 1 / 1 / 6 / 2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:200px;
+  list-style:none;
+  padding:0;
 }
 
 .round-three {
@@ -35,6 +57,13 @@ code {
   grid-template-rows: 100px 20px repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 70px; 
+  grid-area: 1 / 1 / 6 / 2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:200px;
+  list-style:none;
+  padding:0;
 }
 
 .round-four {
@@ -42,7 +71,9 @@ code {
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: 100px 20px repeat(3, 1fr);
   grid-column-gap: 10px;
-  grid-row-gap: 70px; 
+  grid-row-gap: 70px;
+  grid-area: 1 / 4 / 6 / 5;
+  display:flex;
 }
 
 .round-five {
@@ -50,33 +81,38 @@ code {
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: 100px 20px repeat(3, 1fr);
   grid-column-gap: 10px;
-  grid-row-gap: 70px; 
+  grid-row-gap: 70px;
 }
 
 
-.song-card {  
+.song-card-one {  
   flex-direction: row;
-  /* width: 80px; */
   border-style: dotted;
-  /* margin-bottom: 20px;  */
+  text-align: center;
 }
 
 .song-card-two {
   border-style: dotted;
   background-color: aquamarine;
+  text-align: center;
 }
 
 .song-card-three {
   border-style: dotted;
   background-color: rgb(206, 172, 88);
+  text-align: center;
 }
 
 .song-card-four {
   border-style: dotted;
   background-color: rgb(60, 129, 103);
+  text-align: center;
 }
 
 .song-card-five {
   border-style: dotted;
   background-color: rgb(196, 78, 143);
+  text-align: center;
 }
+
+  

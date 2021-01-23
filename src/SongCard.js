@@ -40,10 +40,11 @@ function SongCard({ song, title, artist, album, id, votes, round1winner, round2w
 
     return (
         <div className="song-card">
-            <h2>{title}</h2>
-            {/* <h4>{artist}</h4>
-            <h4>{album}</h4> */}
-            <p>{artist} - {album} song id - {id}</p>
+            <h3>{title}</h3>
+            <b>{artist}</b>
+            <br></br>
+            <i>{album}</i>
+            <p>{id}</p>
             <button id={id} onClick={onLikeClick}>Vote</button>
         </div>
     )

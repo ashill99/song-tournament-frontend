@@ -48,7 +48,9 @@ function FinalRound({songs, setSongs}) {
       )
     
       return (
-        <div className="round-five">{songChoices}</div>
+        <div className="parent">
+          <div className="round-four">{songChoices}</div>
+        </div>
       )
 }
 

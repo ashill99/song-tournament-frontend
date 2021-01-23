@@ -2,7 +2,7 @@ import React from 'react';
 import SongCard from './SongCard';
 import shortid from 'shortid';
 
-function RoundOne({songs, setSongs }) {
+function RoundOne({ songs, setSongs }) {
 
   function handleVotes(updatedSong) {
     const updatedSongs = songs.map((song) =>
@@ -45,9 +45,11 @@ function RoundOne({songs, setSongs }) {
             /> 
       )
 
-    return (
-        <div className="round-one">{songChoices}</div>
-    )
+      return (
+        <div className="parent">
+          <div className="round-four">{songChoices}</div>
+        </div>
+      )
 }
 
 export default RoundOne;

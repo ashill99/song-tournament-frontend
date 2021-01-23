@@ -49,9 +49,11 @@ function RoundThree({songs, setSongs }) {
           /></div> : null)
       )
 
-    return (
-        <div className="round-three">{songChoices}</div>
-    )
+      return (
+        <div className="parent">
+          <div className="round-four">{songChoices}</div>
+        </div>
+      )
 }
 
 export default RoundThree;
