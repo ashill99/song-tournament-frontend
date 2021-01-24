@@ -1,5 +1,5 @@
 import React from 'react';
-import SongCard from './SongCard';
+import SongCard from '../Components/SongCard';
 import shortid from 'shortid';
 
 function RoundOne({ songs, setSongs }) {
@@ -16,7 +16,7 @@ function RoundOne({ songs, setSongs }) {
       round1winner: true
     };
     let id = event.target.id
-      fetch(`http://localhost:4000/songs/${id}`, {
+      fetch(`http://localhost:3000/songs/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

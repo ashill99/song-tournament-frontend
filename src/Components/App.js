@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import RoundOne from './RoundOne';
-import RoundTwo from './RoundTwo';
-import RoundThree from './RoundThree'
-import RoundFour from './RoundFour'
-import FinalRound from './FinalRound'
+import RoundOne from '../Components/RoundOne';
+import RoundTwo from '../Components/RoundTwo';
+import RoundThree from '../Components/RoundThree'
+import RoundFour from '../Components/RoundFour'
+import FinalRound from '../Components/FinalRound'
 
 function App() {
 
   const [songs, setSongs] = useState([])
   
     useEffect(() => {
-        fetch("http://localhost:4000/songs")
+        fetch("http://localhost:3000/songs")
           .then((response) => response.json())
           .then(setSongs)
       }, [])
