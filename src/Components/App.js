@@ -32,14 +32,27 @@ console.log(addedSongs)
     function handleNewBracket(newBracket) {
       setBrackets([...brackets, newBracket])
       console.log(newBracket)
-      // handleNewJoin(newBracket.id)
+      handleNewJoin(newBracket.id)
     }
 
     function handleNewJoin(bracket_id) {
       addedSongs.map((song) => {
         console.log('i want to fetch in this map')
-            })
-    }
+        const newSongBracketObj = {
+          bracket_id: bracket_id,
+          song_id: song.id
+        }
+        fetch("http://localhost:3000/songbrackets", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(newSongBracketObj)
+          })
+              .then(response => response.json())
+              .then(newSongBracket => console.log(newSongBracket))
+              })
+            }
 
   console.log(addedSongs)
     console.log(songs)
