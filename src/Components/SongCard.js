@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SongCard({ song, title, artist, album, id, votes, round1winner, round2winner, round3winner, round4winner, onUpdateSong, onLikeClick }) {
+function SongCard({ song, title, artist, album, spotify_id, votes, round1winner, round2winner, round3winner, round4winner, onUpdateSong, onLikeClick }) {
 
     // function updateRoundTwo() {
     //     round2winner: true
@@ -44,8 +44,8 @@ function SongCard({ song, title, artist, album, id, votes, round1winner, round2w
             <b>{artist}</b>
             <br></br>
             <i>{album}</i>
-            <p>{id}</p>
-            <button id={id} onClick={onLikeClick}>Vote</button>
+            <p>{spotify_id}</p>
+            <button id={spotify_id} onClick={onLikeClick}>Vote</button>
         </div>
     )
 }

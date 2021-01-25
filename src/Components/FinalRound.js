@@ -33,7 +33,7 @@ function FinalRound({songs, setSongs}) {
         <div className="song-card-five" key={shortid.generate()}>
           <SongCard 
           key={shortid.generate()}
-          id={song.id}
+          spotify_id={song.spotify_id}
           title={song.title}
           artist={song.artist}
           album={song.album}

@@ -19,6 +19,8 @@ code {
 
 .parent {
   display: grid;
+  grid-template-columns: repeat(16, 1fr);
+
 
 }
 
@@ -163,4 +165,41 @@ button:hover {
   margin: 1rem 2rem;
 }
 
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+}
   
+.round1-child {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 12rem;
+  height: 12rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+}
+
+.round2-child {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 12rem;
+  height: 12rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+}
+
+.round3-child {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 12rem;
+  height: 12rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+}
+
+.search-bar-form {
+
+}

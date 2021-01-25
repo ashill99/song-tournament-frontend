@@ -49,7 +49,11 @@ function RoundTwo({songs, setSongs }) {
 
     return (
       <div className="parent">
-        <div className="round-four">{songChoices}</div>
+        {/* <div className="round-four">{songChoices}</div> */}
+        {/* <div className="round2-child">
+          </div>
+          <div className="round2-child">
+          </div> */}
       </div>
     )
 }

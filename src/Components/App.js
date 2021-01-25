@@ -7,6 +7,9 @@ import FinalRound from '../Components/FinalRound'
 import BracketList from '../Components/BracketList'
 import SearchBar from './SearchBar'
 import SearchContainer from './SearchContainer'
+import NavBar from './NavBar'
+import Refresh from './Refresh'
+import NewBracketForm from './NewBracketForm'
 
 function App() {
 
@@ -14,28 +17,26 @@ function App() {
   const [brackets, setBrackets] = useState([])
   const [showBrackets, setShowBrackets] = useState(false)
   const [searchArtist, setSearchArtist] = useState([])
+  const [chosenTracks, setChosenTracks] = useState([])
+  const [addedSongs, setAddedSongs] = useState([])
 
-  const accessToken = 'BQC73z-KrAHZ85OyByFqdBfc7Xd1UxFlYG8Pkt4S2nqpwzu0K_4W5oHIITjn6XgbjtnZLHx9JgVdi6SFfxARIoG2XwHZUG2G_JytXsHiIrHlpcnpeXVrCQovlueoNagfkfzzad3D4VHGScdgQo8swDaWKHsj'
-  
-    // useEffect(() => {
-    //     fetch("http://localhost:3000/songs")
-    //       .then((response) => response.json())
-    //       .then((songs) => {
-    //         const updatedSongs = songs.map((song) => {
-    //           return { ...song, round1winner: false };
-    //         });
-    //       setSongs(updatedSongs);
-    //       })   
-    //   }, [])
+  const accessToken = 'BQBerqlOcjEjTRFCiRd3ghVYTgtMIRNz7b4mzvGZ47xu_S0J0M2gvZHoGjOdUw9Wca0_d6o4eZg5UlgSeK1W4OB8lgIhq8oi_1R6LSpm1g7ADlnpzdWABvZPAMubBBU2ykzj50hSzlAYbwsNHkhErZYxNs3J0w'
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/brackets")
-  //       .then((response) => response.json())
-  //       .then(setBrackets)
-  //   }, [])
-  
-    // console.log(songs)
-    // console.log(brackets)
+  useEffect(() => {
+    fetch("http://localhost:3000/brackets")
+        .then((response) => response.json())
+        .then(setBrackets)
+    }, [])
+
+    function handleNewBracket(newBracket) {
+      setBrackets([...brackets, newBracket])
+      console.log(newBracket)
+      // handleNewSongAdd(newBracket.id)
+    }
+
+  console.log(addedSongs)
+    console.log(songs)
+    console.log(brackets)
 
   function clickHandler() {
     setShowBrackets((showBrackets) => !showBrackets)
@@ -60,7 +61,7 @@ function App() {
           return [];
         }
         const newDetails =  jsonResponse.tracks.items.map((track) => ({
-          id: track.id,
+          spotify_id: track.id,
           name: track.name,
           artists: track.artists[0].name,
           album: track.album.name,
@@ -72,12 +73,18 @@ function App() {
   }
 
   console.log(searchArtist)
+console.log(chosenTracks)
+console.log(brackets)
 
   return (
     <div>
-      <SearchBar searchForTrack={searchForTrack}/>
-      <SearchContainer searchArtist={searchArtist} />
+      <NavBar />
       
+      <SearchBar searchForTrack={searchForTrack}/>
+      <SearchContainer brackets={brackets} addedSongs={addedSongs} searchArtist={searchArtist} chosenTracks={chosenTracks} setChosenTracks={setChosenTracks} setAddedSongs={setAddedSongs}/>
+      <NewBracketForm localHandleNewBracket={handleNewBracket} chosenTracks={chosenTracks}/>
+      <Refresh />
+
       <button onClick={clickHandler} >Show/hide brackets list</button>
           {showBrackets ? <BracketList brackets={brackets} setBrackets={setBrackets} />
           :

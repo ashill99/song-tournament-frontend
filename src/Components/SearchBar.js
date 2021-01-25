@@ -7,8 +7,10 @@ function handleNewSearch(e) {
     console.log(e.target.value)
     searchForTrack(e.target.value)
 }
+
+
     return (
-        <form className="form" id="addItemForm">
+        <form className="search-bar-form" id="addItemForm">
         <input
           type="text"
           className="input"
