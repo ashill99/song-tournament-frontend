@@ -21,6 +21,7 @@ function App() {
   const [addedSongs, setAddedSongs] = useState([])
 
   const accessToken = 'BQBerqlOcjEjTRFCiRd3ghVYTgtMIRNz7b4mzvGZ47xu_S0J0M2gvZHoGjOdUw9Wca0_d6o4eZg5UlgSeK1W4OB8lgIhq8oi_1R6LSpm1g7ADlnpzdWABvZPAMubBBU2ykzj50hSzlAYbwsNHkhErZYxNs3J0w'
+console.log(addedSongs)
 
   useEffect(() => {
     fetch("http://localhost:3000/brackets")
@@ -31,7 +32,13 @@ function App() {
     function handleNewBracket(newBracket) {
       setBrackets([...brackets, newBracket])
       console.log(newBracket)
-      // handleNewSongAdd(newBracket.id)
+      // handleNewJoin(newBracket.id)
+    }
+
+    function handleNewJoin(bracket_id) {
+      addedSongs.map((song) => {
+        console.log('i want to fetch in this map')
+            })
     }
 
   console.log(addedSongs)
