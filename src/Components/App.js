@@ -37,7 +37,7 @@ console.log(addedSongs)
 
     function handleNewJoin(bracket_id) {
       addedSongs.map((song) => {
-        console.log('i want to fetch in this map')
+        console.log(bracket_id)
         const newSongBracketObj = {
           bracket_id: bracket_id,
           song_id: song.id
