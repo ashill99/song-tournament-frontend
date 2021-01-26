@@ -2,7 +2,7 @@
 
 function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, setChosenTracks, key, spotify_id, artists, album, uri, image, name}) {
     
-    const lastBracket = brackets[brackets.length - 1]
+    // const lastBracket = brackets[brackets.length - 1]
 
     function addNewSong(){
 
@@ -13,8 +13,8 @@ function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, se
         album: album, 
         image: image, 
         uri: uri,
-        bracket_id: lastBracket
         }
+        
     fetch("http://localhost:3000/songs", {
               method: "POST",
               headers: {

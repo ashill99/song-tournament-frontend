@@ -10,6 +10,7 @@ import SearchContainer from './SearchContainer'
 import NavBar from './NavBar'
 import Refresh from './Refresh'
 import NewBracketForm from './NewBracketForm'
+import BracketRound from './BracketRound'
 
 function App() {
 
@@ -19,8 +20,11 @@ function App() {
   const [searchArtist, setSearchArtist] = useState([])
   const [chosenTracks, setChosenTracks] = useState([])
   const [addedSongs, setAddedSongs] = useState([])
+  const [bracketId, setBracketId] = useState('')
+  const [roundOneTracks, setRoundOneTracks] = useState([])
 
-  const accessToken = 'BQBerqlOcjEjTRFCiRd3ghVYTgtMIRNz7b4mzvGZ47xu_S0J0M2gvZHoGjOdUw9Wca0_d6o4eZg5UlgSeK1W4OB8lgIhq8oi_1R6LSpm1g7ADlnpzdWABvZPAMubBBU2ykzj50hSzlAYbwsNHkhErZYxNs3J0w'
+
+  const accessToken = 'BQDMVGFrIwFbWc8181b7UdMs8cYnDmUwHXGubnHnd4syiiMFxVEJac5pNJG8jWK5vnnSM-_epYr8RdO02jod3JsDp5F5B32pe9UdWkhyupsXmZZKlnxCfw7NzRjDI4FnW5Ls2Zf3tyPsZCmB66J0hDxtOvlL'
 console.log(addedSongs)
 
   useEffect(() => {
@@ -32,7 +36,9 @@ console.log(addedSongs)
     function handleNewBracket(newBracket) {
       setBrackets([...brackets, newBracket])
       console.log(newBracket)
+      setBracketId(newBracket.id)
       handleNewJoin(newBracket.id)
+      // getRoundOneTracks(newBracket.id)
     }
 
     function handleNewJoin(bracket_id) {
@@ -48,11 +54,19 @@ console.log(addedSongs)
                   "Content-Type": "application/json"
               },
               body: JSON.stringify(newSongBracketObj)
-          })
+          }, getRoundOneTracks(bracket_id))
               .then(response => response.json())
               .then(newSongBracket => console.log(newSongBracket))
               })
             }
+
+         function getRoundOneTracks(id) {       
+              fetch(`http://localhost:3000/brackets/${id}`)
+                     .then(r => r.json())
+                     .then(roundData => {
+                       console.log(roundData)
+                     })
+         }
 
   console.log(addedSongs)
     console.log(songs)
@@ -110,11 +124,15 @@ console.log(brackets)
           :
           null
           } 
-      <RoundOne songs={songs} setSongs={setSongs} handleVotes={handleVotes} />
+
+  <BracketRound roundOneTracks={roundOneTracks} />
+
+
+      {/* <RoundOne songs={songs} setSongs={setSongs} handleVotes={handleVotes} />
       <RoundTwo songs={songs} setSongs={setSongs} />
       <RoundThree songs={songs} setSongs={setSongs} />
       <RoundFour songs={songs} setSongs={setSongs}/>
-      <FinalRound songs={songs} setSongs={setSongs} />
+      <FinalRound songs={songs} setSongs={setSongs} /> */}
     </div>
   )
 }

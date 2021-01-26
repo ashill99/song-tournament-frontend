@@ -3,8 +3,9 @@
 
 function NewBracketItem({chosenTracks}) {
 
-    const eachTrack = chosenTracks.map((track) => {
-        return <div>{track.name}</div>
+    const eachTrack = chosenTracks.map((track, index) => {
+
+        while (chosenTracks.length < 9) {return <div>{index + 1}: {track.name}</div>}
     })
 
     return (
