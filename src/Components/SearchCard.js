@@ -1,9 +1,7 @@
+import React from 'react'
 
-
-function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, setChosenTracks, key, spotify_id, artists, album, uri, image, name}) {
+function SearchCard({ brackets, addedSongs, setAddedSongs, chosenTracks, song, setChosenTracks, spotify_id, artists, album, uri, image, name }) {
     
-    // const lastBracket = brackets[brackets.length - 1]
-
     function addNewSong(){
 
     const newSongObj = {
@@ -30,7 +28,6 @@ function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, se
 
     function handleChooseTrack(e) {
         e.preventDefault()
-        console.log(e.target.id)
         setChosenTracks([...chosenTracks, song])
         addNewSong()
     }

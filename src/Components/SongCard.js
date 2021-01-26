@@ -1,51 +1,20 @@
 import React from 'react'
 
-function SongCard({ song, title, artist, album, spotify_id, votes, round1winner, round2winner, round3winner, round4winner, onUpdateSong, onLikeClick }) {
+function SongCard({ song, track, id, winner, setWinner, image, artists }) {
 
-    // function updateRoundTwo() {
-    //     round2winner: true
-    //   }
+      function handleWinner() {
+        setWinner([...winner, song])
+      }
 
-    // function handleLikeClick() {
-    //     const updateObj = {
-    //       round1winner: true
-    //           };
-    
-    //     fetch(`http://localhost:4000/songs/${id}`, {
-    //       method: "PATCH",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(updateObj),
-    //     })
-    //       .then((r) => r.json())
-    //       .then(onUpdateSong);
-    //   }
-
-      // function handleR2Click() {
-      //   const updateObj = {
-      //     round2winner: true
-      //         };
-    
-      //   fetch(`http://localhost:4000/songs/${id}`, {
-      //     method: "PATCH",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(updateObj),
-      //   })
-      //     .then((r) => r.json())
-      //     .then(onUpdateSong);
-      // }
-
+console.log(song)
     return (
-        <div className="song-card">
-            <h3>{title}</h3>
-            <b>{artist}</b>
+            // i've given each song-card div an ID set to the song_ID for matching song to div and reusing component
+        <div data-id={id} className="song-card">
+            <h3>{track}</h3>
+            <b>{artists}</b>
             <br></br>
-            <i>{album}</i>
-            <p>{spotify_id}</p>
-            <button id={spotify_id} onClick={onLikeClick}>Vote</button>
+            <img className="round-img" src={image} alt={track}></img>
+            <button id={id} onClick={handleWinner}>Banger!</button>
         </div>
     )
 }

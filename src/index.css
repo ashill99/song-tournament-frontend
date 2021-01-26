@@ -17,6 +17,10 @@ code {
   width: 60px;
 }
 
+.round-img {
+  width: 60px;
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -165,6 +169,15 @@ button:hover {
   margin: 1rem 2rem;
 }
 
+.empty-songcard {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 8rem;
+  height: 19rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+}
 .navbar {
   display: grid;
   grid-template-columns: repeat(16, 1fr);

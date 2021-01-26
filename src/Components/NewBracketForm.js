@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import NewBracketItem from './NewBracketItem'
+import BracketRound from './BracketRound'
+import { BrowserRouter, useHistory, Switch, Route, Link } from 'react-router-dom'
 
-function NewBracketForm({chosenTracks, localHandleNewBracket }) {
+function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks }) {
+
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
 
@@ -21,13 +23,19 @@ function NewBracketForm({chosenTracks, localHandleNewBracket }) {
     .then(newBracket => localHandleNewBracket(newBracket))
   }
 
+// function handleLinkNewBracket() {
+//     <Link to="localhost:3001/brackets"></Link>
+//   // console.log('link clicked')
+// }
 
   return (
+    <div>        
 
     <form onSubmit={handleSubmit} className="new-bracket-form">
+
       <input 
         name="name"
-        placeholder="Bracket Name"
+        placeholder="Name..."
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
@@ -36,18 +44,27 @@ function NewBracketForm({chosenTracks, localHandleNewBracket }) {
 
       <input 
         name="category"
-        placeholder="Category"
+        placeholder="Category..."
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       />
 
       <br></br>
-
-      <NewBracketItem chosenTracks={chosenTracks}/>
-        <br></br>
-      <input type="submit" value="Create New Bracket" />
+      <input  
+        type="submit" 
+        onClick={console.log('we want this to link to /brackets/:id')} 
+        value="Create New Bracket" 
+      />
 
     </form>
+
+       {/* <Switch>
+         <Route path="/brackets">  */}
+      <BracketRound roundOneTracks={roundOneTracks} />
+        {/* </Route>
+       </Switch> */}
+    </div>
 );
 }
+
 export default NewBracketForm;

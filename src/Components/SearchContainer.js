@@ -1,8 +1,6 @@
 import SearchCard from './SearchCard'
 
-
-function SearchContainer({brackets, addedSongs, setAddedSongs, chosenTracks, searchArtist, setChosenTracks}) {
-
+function SearchContainer({ brackets, addedSongs, setAddedSongs, chosenTracks, searchArtist, setChosenTracks }) {
 
     const eachSearchItem = searchArtist
       .map((song) => 
@@ -12,20 +10,22 @@ function SearchContainer({brackets, addedSongs, setAddedSongs, chosenTracks, sea
             setAddedSongs={setAddedSongs}
             chosenTracks={chosenTracks}
             setChosenTracks={setChosenTracks}
-                song={song}
-              key={song.id}
-              spotify_id={song.spotify_id}
-              artists={song.artists}
-              album={song.album}
-              uri={song.uri}
-              image={song.image}
-              name={song.name}
-            /> 
+            song={song}
+            key={song.id}
+            spotify_id={song.spotify_id}
+            artists={song.artists}
+            album={song.album}
+            uri={song.uri}
+            image={song.image}
+            name={song.name}
+          /> 
             
       )
 
       return (
-          eachSearchItem
+        <>
+        {eachSearchItem}
+        </>
       )
 
 }

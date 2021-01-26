@@ -1,13 +1,11 @@
 import React from 'react'
 
-function SearchBar({searchForTrack}) {
+function SearchBar({ searchForTrack }) {
 
 function handleNewSearch(e) {
     e.preventDefault()
-    console.log(e.target.value)
     searchForTrack(e.target.value)
 }
-
 
     return (
         <form className="search-bar-form" id="addItemForm">

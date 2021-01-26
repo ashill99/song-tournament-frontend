@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Redirect, Route, Switch } from "react-router-dom";
 import RoundOne from '../Components/RoundOne';
 import RoundTwo from '../Components/RoundTwo';
 import RoundThree from '../Components/RoundThree'
@@ -8,9 +9,9 @@ import BracketList from '../Components/BracketList'
 import SearchBar from './SearchBar'
 import SearchContainer from './SearchContainer'
 import NavBar from './NavBar'
-import Refresh from './Refresh'
 import NewBracketForm from './NewBracketForm'
-import BracketRound from './BracketRound'
+import NewBracketItem from './NewBracketItem'
+
 
 function App() {
 
@@ -23,8 +24,8 @@ function App() {
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
+  const accessToken = 'BQDPbb17lS4dXmFnGqFwPhh3P7FrsRC7Aep-OQ1RovK6FvuQdvQUOOxQpC8i8ttFZqJr3AoLh_phnHxfybrDc2F-UBjnClH3vpNOUJnmsgaT0CXb_lU76k6ZL20i8MdycyKysGJ0OgMpkAh8qlz2Ad-xEcyM'
 
-  const accessToken = 'BQDeXn6sjA3tBvo06Enpf40MVOR2kvk-4JhMdCJW_kMo33B-U8SXzpNPTtKNWftQS_e0DEGO9fFthjM_TJwcHVjh_xavx1k16QOeZKIVxbZeqtXatC-pIN_5ozkE2BCR-sk9QPqLEF1HxDPtmMwYyH_Wk0Va'
 console.log(addedSongs)
 
   useEffect(() => {
@@ -32,13 +33,15 @@ console.log(addedSongs)
         .then((response) => response.json())
         .then(setBrackets)
     }, [])
+  console.log(brackets)
+
 
     function handleNewBracket(newBracket) {
-      setBrackets([...brackets, newBracket])
+      // setBrackets([...brackets, newBracket])
       console.log(newBracket)
       setBracketId(newBracket.id)
       handleNewJoin(newBracket.id)
-      // getRoundOneTracks(newBracket.id)
+      getRoundOneTracks(newBracket.id)
     }
 
     function handleNewJoin(bracket_id) {
@@ -66,22 +69,18 @@ console.log(addedSongs)
                      .then(setRoundOneTracks)
          }
 
-  console.log(addedSongs)
-    console.log(songs)
-    console.log(brackets)
-
   function clickHandler() {
     setShowBrackets((showBrackets) => !showBrackets)
   }
-  function handleVotes(updatedSong) {
-    const updatedSongs = songs.map((song) =>
-      song.id === updatedSong.id ? updatedSong : song
-    );
-      setSongs(updatedSongs);
-  }
+
+  // function handleVotes(updatedSong) {
+  //   const updatedSongs = songs.map((song) =>
+  //     song.id === updatedSong.id ? updatedSong : song
+  //   );
+  //     setSongs(updatedSongs);
+  // }
     
   function searchForTrack(searchTerm) {
-    console.log('track search')
     fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}&limit=8`, {
       headers: {'Authorization': 'Bearer ' + accessToken}
         })
@@ -104,33 +103,38 @@ console.log(addedSongs)
       });
   }
 
-  console.log(searchArtist)
-console.log(chosenTracks)
-console.log(brackets)
-
   return (
     <div>
+
       <NavBar />
       
       <SearchBar searchForTrack={searchForTrack}/>
-      <SearchContainer brackets={brackets} addedSongs={addedSongs} searchArtist={searchArtist} chosenTracks={chosenTracks} setChosenTracks={setChosenTracks} setAddedSongs={setAddedSongs}/>
-      <NewBracketForm localHandleNewBracket={handleNewBracket} chosenTracks={chosenTracks}/>
-      <Refresh />
 
-      <button onClick={clickHandler} >Show/hide brackets list</button>
+      <NewBracketItem chosenTracks={chosenTracks}/>
+
+      <NewBracketForm 
+              localHandleNewBracket={handleNewBracket}
+              chosenTracks={chosenTracks} 
+              roundOneTracks={roundOneTracks}
+            />
+      <SearchContainer 
+              brackets={brackets} 
+              addedSongs={addedSongs} 
+              searchArtist={searchArtist} 
+              chosenTracks={chosenTracks} 
+              setChosenTracks={setChosenTracks} 
+              setAddedSongs={setAddedSongs} 
+              localHandleNewBracket={handleNewBracket} 
+              chosenTracks={chosenTracks} 
+              roundOneTracks={roundOneTracks}
+            />
+
+      {/* <button onClick={clickHandler} >Show/hide brackets list</button>
           {showBrackets ? <BracketList brackets={brackets} setBrackets={setBrackets} />
           :
           null
-          } 
+          }  */}
 
-  <BracketRound roundOneTracks={roundOneTracks} />
-
-
-      {/* <RoundOne songs={songs} setSongs={setSongs} handleVotes={handleVotes} />
-      <RoundTwo songs={songs} setSongs={setSongs} />
-      <RoundThree songs={songs} setSongs={setSongs} />
-      <RoundFour songs={songs} setSongs={setSongs}/>
-      <FinalRound songs={songs} setSongs={setSongs} /> */}
     </div>
   )
 }
