@@ -11,6 +11,7 @@ import SearchContainer from './SearchContainer'
 import NavBar from './NavBar'
 import NewBracketForm from './NewBracketForm'
 import NewBracketItem from './NewBracketItem'
+import BracketRound from './BracketRound'
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
-  const accessToken = 'BQDPbb17lS4dXmFnGqFwPhh3P7FrsRC7Aep-OQ1RovK6FvuQdvQUOOxQpC8i8ttFZqJr3AoLh_phnHxfybrDc2F-UBjnClH3vpNOUJnmsgaT0CXb_lU76k6ZL20i8MdycyKysGJ0OgMpkAh8qlz2Ad-xEcyM'
+  const accessToken = 'BQAZ1MTD-m7NJCULnx059bvd8G8GVHLf0zUakbFFnj8sQLJYkF-UznLgLa5dGyjZMN9gBHE8bRgIS2Db1ER0xwTifuuF1dJ1u2MMoY7xaSJ-YQuZX8DaAsGaf5_CD2r_VfwXov1oPFw8Q3BDYjnSE19ikEfG'
 
 console.log(addedSongs)
 
@@ -108,6 +109,18 @@ console.log(addedSongs)
 
       <NavBar />
       
+      <Route path="/brackets">
+      {/* <NewBracketForm 
+              localHandleNewBracket={handleNewBracket}
+              chosenTracks={chosenTracks} 
+              roundOneTracks={roundOneTracks}
+              brackets={brackets}
+            />       */}
+            <BracketRound roundOneTracks={roundOneTracks}/>
+      </Route>
+
+      {/* <Route path="/search" */}
+
       <SearchBar searchForTrack={searchForTrack}/>
 
       <NewBracketItem chosenTracks={chosenTracks}/>
@@ -116,7 +129,9 @@ console.log(addedSongs)
               localHandleNewBracket={handleNewBracket}
               chosenTracks={chosenTracks} 
               roundOneTracks={roundOneTracks}
+              brackets={brackets}
             />
+
       <SearchContainer 
               brackets={brackets} 
               addedSongs={addedSongs} 

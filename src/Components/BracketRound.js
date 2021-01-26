@@ -61,9 +61,22 @@ console.log(r2Winner)
         />
     }) : null
 
+    function displayRightTitle() {
+        if (r1Winner.length < 4) {
+            return <h1>Banger Bracket Round One</h1>
+        } else if 
+            (r2Winner.length < 2) {
+                return <h1>Banger Bracket Round Two</h1>
+        } else { 
+            return <h1> Banger Bracket Round Three </h1>
+        }
+    }
+
 console.log(r1Winner)
 
     return (
+<>
+        {displayRightTitle()}
         <div className="bracket-card">
             <div>{/* First Round SongCards */}
             {eachR1Track}
@@ -99,6 +112,7 @@ console.log(r1Winner)
         </div>
         </div>
         </div>
+        </>
     )
 }
 

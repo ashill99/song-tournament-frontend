@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import BracketRound from './BracketRound'
 import { BrowserRouter, useHistory, Switch, Route, Link } from 'react-router-dom'
 
-function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks }) {
+function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks, brackets }) {
 
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
@@ -22,6 +22,11 @@ function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks })
     .then(r => r.json())
     .then(newBracket => localHandleNewBracket(newBracket))
   }
+
+  const lastBracket = [brackets.length - 1]
+  let id = lastBracket
+  console.log(id)
+
 
 // function handleLinkNewBracket() {
 //     <Link to="localhost:3001/brackets"></Link>
@@ -52,17 +57,19 @@ function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks })
       <br></br>
       <input  
         type="submit" 
-        onClick={console.log('we want this to link to /brackets/:id')} 
+        onClick={console.log("bracket created")}
         value="Create New Bracket" 
       />
 
     </form>
+    <Link to={`/brackets/${id}`}>Start Bracket</Link>
 
        {/* <Switch>
          <Route path="/brackets">  */}
       <BracketRound roundOneTracks={roundOneTracks} />
         {/* </Route>
        </Switch> */}
+
     </div>
 );
 }
