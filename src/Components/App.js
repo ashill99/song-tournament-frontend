@@ -24,7 +24,7 @@ function App() {
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
 
-  const accessToken = 'BQDMVGFrIwFbWc8181b7UdMs8cYnDmUwHXGubnHnd4syiiMFxVEJac5pNJG8jWK5vnnSM-_epYr8RdO02jod3JsDp5F5B32pe9UdWkhyupsXmZZKlnxCfw7NzRjDI4FnW5Ls2Zf3tyPsZCmB66J0hDxtOvlL'
+  const accessToken = 'BQDeXn6sjA3tBvo06Enpf40MVOR2kvk-4JhMdCJW_kMo33B-U8SXzpNPTtKNWftQS_e0DEGO9fFthjM_TJwcHVjh_xavx1k16QOeZKIVxbZeqtXatC-pIN_5ozkE2BCR-sk9QPqLEF1HxDPtmMwYyH_Wk0Va'
 console.log(addedSongs)
 
   useEffect(() => {
@@ -63,9 +63,7 @@ console.log(addedSongs)
          function getRoundOneTracks(id) {       
               fetch(`http://localhost:3000/brackets/${id}`)
                      .then(r => r.json())
-                     .then(roundData => {
-                       console.log(roundData)
-                     })
+                     .then(setRoundOneTracks)
          }
 
   console.log(addedSongs)

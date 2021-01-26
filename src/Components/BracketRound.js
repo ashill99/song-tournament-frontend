@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 function BracketRound({ roundOneTracks }) {
 
+// const [defaultTracks, setDefaultTracks] = useState([])
     console.log(roundOneTracks)
     console.log(typeof roundOneTracks.songs)
+    // console.log(Object.keys(roundOneTracks.songs).length)
+
     // const [roundOneTracks, setRoundOneTracks] = useState([])
 
 // function getRoundOneTracks(id) {       
@@ -13,11 +16,9 @@ function BracketRound({ roundOneTracks }) {
 // }
 
 // console.log(roundOneTracks.songs.length)
-// const result = Object.values(roundOneTracks);
-// console.log(result)
+// const result = Object.values(roundOneTracks.songs);
 
-
-const eachR1Track = roundOneTracks.songs.map((track) => {
+const eachR1Track = roundOneTracks.songs ? roundOneTracks.songs.map((track) => {
         console.log(track)
         return (
     <div key={track.id}>
@@ -26,8 +27,8 @@ const eachR1Track = roundOneTracks.songs.map((track) => {
         <img src={track.image} alt={track.name}></img> 
    </div>
     ) 
-    })
-    console.log(eachR1Track)
+    }) : null
+    // console.log(eachR1Track)
 
 // useEffect(() => {
 //     // const eachR1Track = roundOneTracks.songs.map((track) => {
