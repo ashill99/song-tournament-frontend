@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import BracketRound from './BracketRound'
 import { BrowserRouter, useHistory, Switch, Route, Link } from 'react-router-dom'
 
-function NewBracketForm({ setChosenTracks, localHandleNewBracket, roundOneTracks, brackets }) {
+function NewBracketForm({ bracketId, setChosenTracks, localHandleNewBracket, roundOneTracks, brackets }) {
 
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
@@ -25,7 +25,8 @@ function NewBracketForm({ setChosenTracks, localHandleNewBracket, roundOneTracks
   }
 
   const lastBracket = [brackets.length - 1]
-  let id = lastBracket
+  // let id = lastBracket
+  const id = bracketId
   console.log(id)
 
 
@@ -56,14 +57,19 @@ function NewBracketForm({ setChosenTracks, localHandleNewBracket, roundOneTracks
       /> */}
 
       <br></br>
-      <input  
-        type="submit" 
-        onClick={console.log("bracket created")}
-        value="Create New Bracket" 
-      />
+      <div className="form-wrapper">
+        <input  
+          className="form-submit"
+          type="submit" 
+          onClick={console.log("bracket created")}
+          value="Create New Bracket" 
+        />
+      </div>
 
     </form>
-    <Link to={`/brackets/${id}`}>Start Bracket</Link>
+    <div className="link-wrapper">
+    <Link to={`/brackets/${id}`} className="start-bracket-link">Start Game</Link>
+    </div>
 
        {/* <Switch>
          <Route path="/brackets">  */}

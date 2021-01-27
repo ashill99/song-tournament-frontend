@@ -5,10 +5,14 @@ import SongCard from './SongCard'
 function BracketList({ brackets, setBrackets, setRoundOneTracks, roundOneTracks }) {
 
 
-function setNewTracks(songs) {
-    console.log(songs)
-    setRoundOneTracks(songs)
-    setRoundOneTracks(songs)
+function setNewTracks(e) {
+    console.log(e.target.id)
+    // setRoundOneTracks(songs)
+    // setRoundOneTracks(songs)
+    // setRoundOneTracks(bracket)
+    const desiredBracket = brackets.filter((bracket) => bracket.id === e.target.id )
+    console.log(desiredBracket)
+    setRoundOneTracks(desiredBracket)
 }
 
     const displayBracketList = brackets

@@ -85,29 +85,36 @@ console.log(r1Winner)
             {/* Round 2 */}
         </div>
         <div className="empty-songcard">
+            <p>Round 2</p>
             {r1Winner[0] ? eachR2Track[0] : null}
         </div>
         <div className="empty-songcard">
+        <p>Round 2</p>
             {r1Winner[1] ? eachR2Track[1] : null}
         </div>
         <div className="empty-songcard">
+        <p>Round 2</p>
             {r1Winner[2] ? eachR2Track[2] : null}
         </div>
         <div className="empty-songcard">
+        <p>Round 2</p>
             {r1Winner[3] ? eachR2Track[3] : null}
         </div>
         {/* Round 3 */}
         <div>
             <div className="empty-songcard">
+            <p>Final</p>
             {r2Winner[0] ? eachR3Track[0] : null}
         </div>
         <div className="empty-songcard">
+        <p>Final</p>
             {r2Winner[1] ? eachR3Track[1] : null}
         </div>
         </div>
         {/* Final Round */}
         <div>
         <div className="empty-songcard">
+            <p>Banger Bracket Champion</p>
             {r3Winner[0] ? eachR4Track[0] : null}
         </div>
         </div>

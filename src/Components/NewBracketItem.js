@@ -1,29 +1,18 @@
 import React from 'react'
 
-function NewBracketItem({ addedSongs, chosenTracks, setChosenTracks }) {
+function NewBracketItem({ deleteTrack, addedSongs, chosenTracks, setChosenTracks }) {
 
-    function deleteTrack(e) {
-        let oldId = e.target.id
-        const sameSongObj = addedSongs.filter((song) => {
-            if (song.spotify_id === oldId) {
-                return song 
-            }
-        })
-        let id = sameSongObj.id 
-        console.log(id)
-        // fetch(`http://localhost:3000/songs/${id}`, {
-        //       method: "DELETE"})
-        //       .then(r => r.json())
-        //       .then(() => {
-        //           const updatedChosenTracks = chosenTracks.filter((t) => t.id !== id)
-        //           setChosenTracks(updatedChosenTracks)
-        //       })
+    function handleDeleteTrack(e) {
+        deleteTrack(e)
+        const itemObj = document.getElementById(e.target.id)
+        itemObj.remove()
     }
+
 
     const eachTrack = chosenTracks.map((track, index) => {
 
-    return <div>{index + 1}: {track.name} by {track.artists}
-        <button id={track.spotify_id} onClick={deleteTrack}>X</button>
+    return <div id={track.spotify_id}>{index + 1}: {track.name} by {track.artists}
+        <button className="delete-button" id={track.spotify_id} onClick={handleDeleteTrack}> X</button>
     </div>
 
     })

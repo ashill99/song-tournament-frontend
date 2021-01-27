@@ -13,6 +13,8 @@ import NewBracketForm from './NewBracketForm'
 import NewBracketItem from './NewBracketItem'
 import BracketRound from './BracketRound'
 import HomePage from './HomePage'
+import Bracket from './Bracket'
+
 
 
 function App() {
@@ -26,9 +28,10 @@ function App() {
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
-  const accessToken = 'BQDSylvhSpr8BQNGBuLFiQnByAhq3pBvPCCUMfimLU0n53yJUy2ISqN-H8YRVgoR6bPhAsrzLvcrcIm--re313goVm9ISpnz6fL5hBTm1ugKIqpMziQT-bMHWSepgYR257ffeo-OpP0OrMnFPvU74hEBWxVW'
+  const accessToken = 'BQA8kPun0v5ysNNVfjQiZGF-0de80yEi-jIrUHjMCFrkgqjwlve3uNr-kxsd1hH2SMSNJ9ODvh2RD2z_C-1UAWgkzD0jd9FLwegdOU65DTGpKuWBsGOzKXFuB6ftLUydYXR15bS5U-2XoAPsH-3kVkMK-zD2'
 
 console.log(addedSongs)
+console.log(roundOneTracks)
 
   useEffect(() => {
     fetch("http://localhost:3000/brackets")
@@ -105,6 +108,36 @@ console.log(addedSongs)
 
   console.log(roundOneTracks)
 
+
+  function deleteTrack(e) {
+    console.log(e.target.id)
+    let oldId = e.target.id
+    const sameSongObj = addedSongs.filter((song) => {
+        if (song.spotify_id === oldId) {
+            return song 
+        }
+    })
+    let id = sameSongObj[0].id 
+    console.log(oldId)
+    console.log(sameSongObj)
+    console.log(id)
+    // const updatedChosenTracks = chosenTracks.filter((t) => t.id !== id)
+    fetch(`http://localhost:3000/songs/${id}`, {
+          method: "DELETE",})
+          .then(r => r.json())
+          .then(setChosenTracks(chosenTracks.filter((track) => track.id !== id)))
+}
+
+function renderNewTrackList(id) {
+  console.log(id)
+  console.log(chosenTracks)
+  setChosenTracks(chosenTracks.filter((track) => track.id !== id))
+  // const updatedChosenTracks = chosenTracks.filter((t) => t.id !== id)
+  console.log(chosenTracks)
+  // console.log(updatedChosenTracks)
+  // setChosenTracks(updatedChosenTracks)
+}
+
   return (
     <div>
 
@@ -116,9 +149,26 @@ console.log(addedSongs)
 
         <Route exact path="/brackets/:id">
       <BracketRound roundOneTracks={roundOneTracks}/>
+
+      {/* <Bracket 
+            setNewTracks={setNewTracks}
+                bracket={bracket}
+                id={bracket.id}
+                key={bracket.id}
+                name={bracket.name}
+                category={bracket.category}
+                songs={bracket.songs}
+                
+                //     .map((track) => <SongCard track={track.name} 
+                // artists={track.artists} 
+                // image={track.image} 
+                // id={track.id} 
+                /> */}
+
       </Route>
 
       <Route path="/brackets">
+        <h2>Past Brackets</h2>
         <BracketList brackets={brackets} setBrackets={setBrackets} getRoundOneTracks={getRoundOneTracks} setRoundOneTracks={setRoundOneTracks} roundOneTracks={roundOneTracks}/>
       </Route>
 
@@ -130,8 +180,10 @@ console.log(addedSongs)
               roundOneTracks={roundOneTracks}
               brackets={brackets}
               setChosenTracks={setChosenTracks}
+              bracketId={bracketId}
             />
-         <NewBracketItem chosenTracks={chosenTracks} setChosenTracks={setChosenTracks} addedSongs={addedSongs}/>
+
+         <NewBracketItem chosenTracks={chosenTracks} setChosenTracks={setChosenTracks} addedSongs={addedSongs} deleteTrack={deleteTrack}/>
 
       <SearchBar searchForTrack={searchForTrack}/>
       <SearchContainer 

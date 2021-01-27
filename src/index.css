@@ -138,13 +138,18 @@ code {
   height: 19rem;
   display: inline-grid;
   /* margin: 1rem 2rem; */
+  box-shadow:
+
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px #f0f,        /* outer left magenta */
+    10px 0 80px #0ff;         /* outer right cyan */
 }
 
 .song-card h3 {
   color: hotpink
 }
 
-button {
+/* button {
   list-style-type: none;
   position: relative;
   background-color: rgb(236, 233, 233);
@@ -169,7 +174,7 @@ button:hover {
   background-color: rgb(180, 152, 152);
   transition: 0.5s;
   padding: 13px;
-}
+} */
 
 
 .song-card-one {  
@@ -230,7 +235,13 @@ button:hover {
   height: 19rem;
   display: inline-grid;
   margin: 1rem 2rem;
+  box-shadow:
+    
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px #f0f,        /* outer left magenta */
+    10px 0 80px #0ff;         /* outer right cyan */
 }
+
 .navbar {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -277,6 +288,103 @@ button:hover {
   display: inline-grid;
   margin: 1rem 2rem;
 }
+
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button{
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 10px 0;
+  border: 2px solid #4296e6;
+  padding: 4px 40px;
+  text-transform: uppercase;
+  overflow: hidden;
+  /* transition: 1s all ease; */
+  width: 70%;
+  height: 20px;
+  background: #1b1919;
+}
+
+.form-submit {
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 10px 0;
+  border: 2px solid #4296e6;
+  padding: 4px 40px;
+  text-transform: uppercase;
+  overflow: hidden;
+  /* transition: 1s all ease; */
+  width: 70%;
+  height: 30px;
+  background: #1b1919;
+  cursor: pointer;
+}
+
+textarea {
+  outline: none;
+}
+
+.start-bracket-link {
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 10px 0;
+  border: 2px solid #4296e6;
+  padding: 4px 40px;
+  text-transform: uppercase;
+  overflow: hidden;
+  /* transition: 1s all ease; */
+  width: 70%;
+  height: 20px;
+  background: #1b1919;
+}
+
+.delete-button {
+  /* position: relative; */
+  /* display: block; */
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  /* margin: 10px 0; */
+  border: 2px solid #4296e6;
+  /* padding: 4px 40px; */
+  text-transform: uppercase;
+  overflow: hidden;
+  /* transition: 1s all ease; */
+  width: 25px;
+  height: 20px;
+  background: #1b1919;
+}
+
 
 .search-bar-form {
 

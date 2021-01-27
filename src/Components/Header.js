@@ -7,10 +7,10 @@ function Header() {
     return (
         <header>
             <h1>
-                <span className="logo">{logo}                </span>
-                Banger Bracket
+                <span className="logo">               </span>
+                ⚡ Banger Bracket
             </h1>            
-            <nav>
+            <nav className="nav-wrapper">
                 <NavLink to="/" className="button">
                     Home
                 </NavLink>
