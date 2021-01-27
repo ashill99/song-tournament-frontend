@@ -11,7 +11,6 @@ function Bracket({ bracket, setNewTracks, setRoundOneTracks, name, category, son
     return (
         <div className="old-bracket-card">
             <b className="old-bracket-name">{name}</b>
-                {/* {eachSong} */}
             <div className="prepare-wrapper">
                 <button id={id} className="prepare-button" onClick={setNewTracks}>Prepare</button>
             </div>

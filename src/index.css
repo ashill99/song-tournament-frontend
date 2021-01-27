@@ -29,6 +29,27 @@ h1 {
 
 }
 
+h2 {
+
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  /* font-size: calc(20px + 5vw); */
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  /* text-shadow: 0 0 0.15em #1da9cc; */
+  text-shadow: 0 0 5px #fff,
+  /* 0 0 10px #fff, */
+  0 0 20px #fff,
+  0 0 40px hotpink,
+  0 0 80px hotpink,
+  0 0 90px hotpink,
+  0 0 100px hotpink,
+  0 0 150px hotpink;
+
+}
+
 .bracket-list {
   display: grid;
   grid-template-columns: repeat(8, 4fr);
@@ -325,10 +346,18 @@ button:hover {
 .button{
   position: relative;
   display: block;
-  color: white;
+  color: cyan;
   font-size: 14px;
-  font-family: "montserrat";
+  font-family: 'Montserrat', Arial, sans-serif;
   text-decoration: none;
+  text-shadow: 0 0 5px #fff,
+  /* 0 0 10px #fff, */
+  0 0 20px #fff,
+  0 0 40px #0ff,
+  0 0 80px #0ff,
+  0 0 90px #0ff,
+  0 0 100px #0ff,
+  0 0 150px #0ff;
   margin: 10px 0;
   border: 2px solid #4296e6;
   padding: 4px 40px;
@@ -336,7 +365,7 @@ button:hover {
   overflow: hidden;
   width: 70%;
   height: 20px;
-  background: #1b1919;
+  background: rgba(27, 25, 25, 0.2);
 }
 
 .form-submit {

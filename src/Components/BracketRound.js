@@ -83,12 +83,12 @@ console.log(r2Winner)
 
     function displayRightTitle() {
         if (r1Winner.length < 4) {
-            return <h1>Banger Bracket Round One</h1>
+            return <h2>Banger Bracket Round One</h2>
         } else if 
             (r2Winner.length < 2) {
-                return <h1>Banger Bracket Round Two</h1>
+                return <h2>Banger Bracket Round Two</h2>
         } else { 
-            return <h1> Banger Bracket Round Three </h1>
+            return <h2> Banger Bracket Final </h2>
         }
     }
 

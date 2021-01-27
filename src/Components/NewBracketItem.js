@@ -12,7 +12,7 @@ function NewBracketItem({ deleteTrack, addedSongs, chosenTracks, setChosenTracks
     const eachTrack = chosenTracks.map((track, index) => {
 
     return <div id={track.spotify_id}>{index + 1}: {track.name} by {track.artists}
-        <button className="delete-button" id={track.spotify_id} onClick={handleDeleteTrack}> X</button>
+        <button className="delete-button" id={track.spotify_id} onClick={handleDeleteTrack}>  x</button>
     </div>
 
     })

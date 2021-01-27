@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, Link, Route, Switch } from "react-router-dom";
-import RoundOne from '../Components/RoundOne';
-import RoundTwo from '../Components/RoundTwo';
-import RoundThree from '../Components/RoundThree'
-import RoundFour from '../Components/RoundFour'
-import FinalRound from '../Components/FinalRound'
+
 import BracketList from '../Components/BracketList'
 import SearchBar from './SearchBar'
 import SearchContainer from './SearchContainer'
@@ -14,8 +10,6 @@ import NewBracketItem from './NewBracketItem'
 import BracketRound from './BracketRound'
 import HomePage from './HomePage'
 import Bracket from './Bracket'
-
-
 
 function App() {
 
@@ -30,9 +24,6 @@ function App() {
 
   const accessToken = 'BQDd9VHOByEwd9XiexfNE677XCNmChQ7TjQshPctf2VRhS02afhMntgZ4Qp3A2KmApoHG-oBqhmiCqr1ssA2G4A9xC5BR1ekdlnOOuk7zTcXXewUFfD8kOCvBlXrDeo62byt21nlERJI-IgSvu1tu-Y2SNWF'
 
-console.log(addedSongs)
-console.log(roundOneTracks)
-
   useEffect(() => {
     fetch("http://localhost:3000/brackets")
         .then((response) => response.json())
@@ -40,8 +31,6 @@ console.log(roundOneTracks)
     },[])
 
     function handleNewBracket(newBracket) {
-      // setBrackets([...brackets, newBracket])
-      console.log(newBracket)
       setBracketId(newBracket.id)
       handleNewJoin(newBracket.id)
       getRoundOneTracks(newBracket.id)
@@ -71,20 +60,9 @@ console.log(roundOneTracks)
                      .then(r => r.json())
                      .then(setRoundOneTracks)
          }
-
-  // function clickHandler() {
-  //   setShowBrackets((showBrackets) => !showBrackets)
-  // }
-
-  // function handleVotes(updatedSong) {
-  //   const updatedSongs = songs.map((song) =>
-  //     song.id === updatedSong.id ? updatedSong : song
-  //   );
-  //     setSongs(updatedSongs);
-  // }
     
   function searchForTrack(searchTerm) {
-    fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}&limit=8`, {
+    fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}&limit=10`, {
       headers: {'Authorization': 'Bearer ' + accessToken}
         })
       .then((response) => {
@@ -106,9 +84,6 @@ console.log(roundOneTracks)
       });
   }
 
-  console.log(roundOneTracks)
-
-
   function deleteTrack(e) {
     console.log(e.target.id)
     let oldId = e.target.id
@@ -118,10 +93,7 @@ console.log(roundOneTracks)
         }
     })
     let id = sameSongObj[0].id 
-    console.log(oldId)
-    console.log(sameSongObj)
-    console.log(id)
-    // const updatedChosenTracks = chosenTracks.filter((t) => t.id !== id)
+
     fetch(`http://localhost:3000/songs/${id}`, {
           method: "DELETE",})
           .then(r => r.json())
@@ -132,10 +104,6 @@ function renderNewTrackList(id) {
   console.log(id)
   console.log(chosenTracks)
   setChosenTracks(chosenTracks.filter((track) => track.id !== id))
-  // const updatedChosenTracks = chosenTracks.filter((t) => t.id !== id)
-  console.log(chosenTracks)
-  // console.log(updatedChosenTracks)
-  // setChosenTracks(updatedChosenTracks)
 }
 
 function renderOldBracketSongs(bracketObj) {
@@ -158,51 +126,56 @@ console.log(roundOneTracks)
 
           <BracketRound roundOneTracks={roundOneTracks}/>
 
-      </Route>
+        </Route>
 
-      <Route path="/brackets">
-        <h2>Past Brackets</h2>
-        <BracketList 
-            brackets={brackets} 
-            setBrackets={setBrackets} 
-            getRoundOneTracks={getRoundOneTracks} 
-            setRoundOneTracks={setRoundOneTracks} 
-            roundOneTracks={roundOneTracks}
-            renderOldBracketSongs={renderOldBracketSongs}
-        />
-      </Route>
-
-      {/* <Route path="/search" */}
-          <Route path='/search'>
-          <NewBracketForm 
-              localHandleNewBracket={handleNewBracket}
-              chosenTracks={chosenTracks} 
-              roundOneTracks={roundOneTracks}
-              brackets={brackets}
-              setChosenTracks={setChosenTracks}
-              bracketId={bracketId}
-            />
-
-         <NewBracketItem chosenTracks={chosenTracks} setChosenTracks={setChosenTracks} addedSongs={addedSongs} deleteTrack={deleteTrack}/>
-
-      <SearchBar searchForTrack={searchForTrack}/>
-      <SearchContainer 
+        <Route path="/brackets">
+          <h2 className="bracket-list=title">Past Brackets</h2>
+          <BracketList 
               brackets={brackets} 
-              addedSongs={addedSongs} 
-              searchArtist={searchArtist} 
+              setBrackets={setBrackets} 
+              getRoundOneTracks={getRoundOneTracks} 
+              setRoundOneTracks={setRoundOneTracks} 
+              roundOneTracks={roundOneTracks}
+              renderOldBracketSongs={renderOldBracketSongs}
+          />
+        </Route>
+      
+        <Route path='/search'>
+          <h2>Choose Your Bangers</h2>
+            <NewBracketForm 
+                localHandleNewBracket={handleNewBracket}
+                chosenTracks={chosenTracks} 
+                roundOneTracks={roundOneTracks}
+                brackets={brackets}
+                setChosenTracks={setChosenTracks}
+                bracketId={bracketId}
+              />
+
+          <NewBracketItem 
               chosenTracks={chosenTracks} 
               setChosenTracks={setChosenTracks} 
-              setAddedSongs={setAddedSongs} 
-              localHandleNewBracket={handleNewBracket} 
-              chosenTracks={chosenTracks} 
-              roundOneTracks={roundOneTracks}
-            /> 
-      </Route>
+              addedSongs={addedSongs} 
+              deleteTrack={deleteTrack}
+          />
 
+          <SearchBar 
+              searchForTrack={searchForTrack}
+          />
 
-<Route path='/newbracket'>
-          </Route>
-</Switch>
+        <SearchContainer 
+                brackets={brackets} 
+                addedSongs={addedSongs} 
+                searchArtist={searchArtist} 
+                chosenTracks={chosenTracks} 
+                setChosenTracks={setChosenTracks} 
+                setAddedSongs={setAddedSongs} 
+                localHandleNewBracket={handleNewBracket} 
+                chosenTracks={chosenTracks} 
+                roundOneTracks={roundOneTracks}
+              /> 
+        </Route>
+
+      </Switch>
     </div>
   )
 }
