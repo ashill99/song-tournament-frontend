@@ -1,9 +1,14 @@
 import React from 'react'
 
-function SongCard({ song, track, id, winner, setWinner, image, artists }) {
+function SongCard({handleUpdateVotes, setAddedSongs, onUpdateSong, song, track, id, winner, setWinner, image, artists }) {
+
+    // const votes = song.votes
+    // console.log(votes) 
 
       function handleWinner() {
         setWinner([...winner, song])
+        console.log(id)
+        handleUpdateVotes(id, song)
       }
 
 console.log(song)

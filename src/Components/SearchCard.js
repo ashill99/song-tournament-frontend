@@ -11,6 +11,7 @@ function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, se
         album: album, 
         image: image, 
         uri: uri,
+        votes: 0,
         }
         
     fetch("http://localhost:3000/songs", {

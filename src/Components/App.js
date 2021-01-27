@@ -22,7 +22,7 @@ function App() {
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
-  const accessToken = 'BQDd9VHOByEwd9XiexfNE677XCNmChQ7TjQshPctf2VRhS02afhMntgZ4Qp3A2KmApoHG-oBqhmiCqr1ssA2G4A9xC5BR1ekdlnOOuk7zTcXXewUFfD8kOCvBlXrDeo62byt21nlERJI-IgSvu1tu-Y2SNWF'
+  const accessToken = 'BQDNca-94E6IQml44GZ1eXgP0VvUBQyB4uX0uQohMaeo9vYjw21iw8D0CWXLPD0Xa5Wpj1AodmFs6TNNCbvKSUrM6VEgs371a5rEawnHwJzZWfmmsnabd-MDHNzlN65_dXHUp4SG-KcJHRodgspQtVwuZ1aU'
 
   useEffect(() => {
     fetch("http://localhost:3000/brackets")
@@ -111,6 +111,32 @@ function renderOldBracketSongs(bracketObj) {
   console.log(roundOneTracks)
 }
 
+function onUpdateSong() {
+
+      console.log('hi')
+      // setAddedSongs(updatedSongs);
+    }
+
+
+    function handleUpdateVotes(id, song) {
+
+      console.log(addedSongs)
+      const updateObj = {
+        votes: song.votes + 1
+      };
+      console.log(updateObj)
+      fetch(`http://localhost:3000/songs/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateObj),
+      })
+        .then(r => r.json())
+        .then(setSongs);
+      }
+
+
 console.log(roundOneTracks)
 
   return (
@@ -124,7 +150,12 @@ console.log(roundOneTracks)
 
         <Route exact path="/brackets/:id">
 
-          <BracketRound roundOneTracks={roundOneTracks}/>
+          <BracketRound 
+              roundOneTracks={roundOneTracks}
+              onUpdateSong={onUpdateSong}
+              setAddedSongs={setAddedSongs}
+              handleUpdateVotes={handleUpdateVotes}
+          />
 
         </Route>
 

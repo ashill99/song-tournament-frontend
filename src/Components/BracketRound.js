@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SongCard from './SongCard'
 
-function BracketRound({ roundOneTracks }) {
+function BracketRound({handleUpdateVotes, setAddedSongs, onUpdateSong, roundOneTracks }) {
 
     const [r1Winner, setR1Winner] = useState([])
     const [r2Winner, setR2Winner] = useState([])
@@ -28,9 +28,24 @@ console.log(roundOneTracks)
 //     />
 // })
 
+// const bracketWinners = 
+const bracketWinners = roundOneTracks.songs ? roundOneTracks.songs
+    .map((track) => {return (<div> {track.name}: {track.votes} wins
+    </div>)}
+    ) : null 
+
+console.log(bracketWinners)
+
+function meaninglessFunction(no, args) {
+    console.log('does nothing')
+}
+
     const eachR1Track = roundOneTracks.songs ? roundOneTracks.songs
     .map((track) => {
         return <SongCard 
+        handleUpdateVotes={meaninglessFunction}
+        setAddedSongs={setAddedSongs}
+        onUpdateSong={onUpdateSong}
         song={track}
         track={track.name} 
         artists={track.artists} 
@@ -47,6 +62,9 @@ console.log(r2Winner)
     const eachR2Track = r1Winner ? r1Winner
     .map((track) => {
         return <SongCard 
+        handleUpdateVotes={meaninglessFunction}
+        setAddedSongs={setAddedSongs}
+        onUpdateSong={onUpdateSong}
         song={track}
         track={track.name} 
         artists={track.artists} 
@@ -59,6 +77,9 @@ console.log(r2Winner)
 
     const eachR3Track = r2Winner ? r2Winner.map((track) => {
         return <SongCard 
+        handleUpdateVotes={handleUpdateVotes}
+        setAddedSongs={setAddedSongs}
+        onUpdateSong={onUpdateSong}
         song={track}
         track={track.name} 
         artists={track.artists} 
@@ -71,6 +92,9 @@ console.log(r2Winner)
 
     const eachR4Track = r3Winner ? r3Winner.map((track) => {
         return <SongCard 
+        handleUpdateVotes={meaninglessFunction}
+        setAddedSongs={setAddedSongs}
+        onUpdateSong={onUpdateSong}
         song={track}
         track={track.name} 
         artists={track.artists} 
@@ -134,12 +158,15 @@ console.log(r1Winner)
         </div>
         {/* Final Round */}
         <div>
-        <div className="empty-songcard">
+        <div className="empty-songcard-champion">
             <p>Banger Bracket Champion</p>
             {r3Winner[0] ? eachR4Track[0] : null}
         </div>
         </div>
         </div>
+
+        <div>
+            <h3>Winners:</h3>{bracketWinners} </div>
         </>
     )
 }

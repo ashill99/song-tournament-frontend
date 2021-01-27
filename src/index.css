@@ -271,6 +271,21 @@ button:hover {
     10px 0 80px #0ff;         /* outer right cyan */
 }
 
+.empty-songcard-champion {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 8rem;
+  height: 19rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow:
+    
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px #f0f,        /* outer left magenta */
+    10px 0 80px #0ff;         /* outer right cyan */
+}
+
 .navbar {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
