@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Link, Route, Switch } from "react-router-dom";
 import RoundOne from '../Components/RoundOne';
 import RoundTwo from '../Components/RoundTwo';
 import RoundThree from '../Components/RoundThree'
@@ -8,10 +8,11 @@ import FinalRound from '../Components/FinalRound'
 import BracketList from '../Components/BracketList'
 import SearchBar from './SearchBar'
 import SearchContainer from './SearchContainer'
-import NavBar from './NavBar'
+import Header from './Header'
 import NewBracketForm from './NewBracketForm'
 import NewBracketItem from './NewBracketItem'
 import BracketRound from './BracketRound'
+import HomePage from './HomePage'
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
-  const accessToken = 'BQAZ1MTD-m7NJCULnx059bvd8G8GVHLf0zUakbFFnj8sQLJYkF-UznLgLa5dGyjZMN9gBHE8bRgIS2Db1ER0xwTifuuF1dJ1u2MMoY7xaSJ-YQuZX8DaAsGaf5_CD2r_VfwXov1oPFw8Q3BDYjnSE19ikEfG'
+  const accessToken = 'BQDSylvhSpr8BQNGBuLFiQnByAhq3pBvPCCUMfimLU0n53yJUy2ISqN-H8YRVgoR6bPhAsrzLvcrcIm--re313goVm9ISpnz6fL5hBTm1ugKIqpMziQT-bMHWSepgYR257ffeo-OpP0OrMnFPvU74hEBWxVW'
 
 console.log(addedSongs)
 
@@ -34,8 +35,6 @@ console.log(addedSongs)
         .then((response) => response.json())
         .then(setBrackets)
     }, [])
-  console.log(brackets)
-
 
     function handleNewBracket(newBracket) {
       // setBrackets([...brackets, newBracket])
@@ -70,9 +69,9 @@ console.log(addedSongs)
                      .then(setRoundOneTracks)
          }
 
-  function clickHandler() {
-    setShowBrackets((showBrackets) => !showBrackets)
-  }
+  // function clickHandler() {
+  //   setShowBrackets((showBrackets) => !showBrackets)
+  // }
 
   // function handleVotes(updatedSong) {
   //   const updatedSongs = songs.map((song) =>
@@ -104,34 +103,37 @@ console.log(addedSongs)
       });
   }
 
+  console.log(roundOneTracks)
+
   return (
     <div>
 
-      <NavBar />
-      
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+
+        <Route exact path="/brackets/:id">
+      <BracketRound roundOneTracks={roundOneTracks}/>
+      </Route>
+
       <Route path="/brackets">
-      {/* <NewBracketForm 
-              localHandleNewBracket={handleNewBracket}
-              chosenTracks={chosenTracks} 
-              roundOneTracks={roundOneTracks}
-              brackets={brackets}
-            />       */}
-            <BracketRound roundOneTracks={roundOneTracks}/>
+        <BracketList brackets={brackets} setBrackets={setBrackets} getRoundOneTracks={getRoundOneTracks} setRoundOneTracks={setRoundOneTracks} roundOneTracks={roundOneTracks}/>
       </Route>
 
       {/* <Route path="/search" */}
-
-      <SearchBar searchForTrack={searchForTrack}/>
-
-      <NewBracketItem chosenTracks={chosenTracks}/>
-
-      <NewBracketForm 
+          <Route path='/search'>
+          <NewBracketForm 
               localHandleNewBracket={handleNewBracket}
               chosenTracks={chosenTracks} 
               roundOneTracks={roundOneTracks}
               brackets={brackets}
+              setChosenTracks={setChosenTracks}
             />
+         <NewBracketItem chosenTracks={chosenTracks} setChosenTracks={setChosenTracks} addedSongs={addedSongs}/>
 
+      <SearchBar searchForTrack={searchForTrack}/>
       <SearchContainer 
               brackets={brackets} 
               addedSongs={addedSongs} 
@@ -142,14 +144,13 @@ console.log(addedSongs)
               localHandleNewBracket={handleNewBracket} 
               chosenTracks={chosenTracks} 
               roundOneTracks={roundOneTracks}
-            />
+            /> 
+      </Route>
 
-      {/* <button onClick={clickHandler} >Show/hide brackets list</button>
-          {showBrackets ? <BracketList brackets={brackets} setBrackets={setBrackets} />
-          :
-          null
-          }  */}
 
+<Route path='/newbracket'>
+          </Route>
+</Switch>
     </div>
   )
 }

@@ -11,6 +11,7 @@ function SearchContainer({ brackets, addedSongs, setAddedSongs, chosenTracks, se
             chosenTracks={chosenTracks}
             setChosenTracks={setChosenTracks}
             song={song}
+            id={song.id}
             key={song.id}
             spotify_id={song.spotify_id}
             artists={song.artists}

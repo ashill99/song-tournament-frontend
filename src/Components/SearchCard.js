@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SearchCard({ brackets, addedSongs, setAddedSongs, chosenTracks, song, setChosenTracks, spotify_id, artists, album, uri, image, name }) {
+function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, setChosenTracks, spotify_id, artists, album, uri, id, image, name }) {
     
     function addNewSong(){
-
+        
     const newSongObj = {
         name: name,
         artists: artists,
@@ -23,6 +23,7 @@ function SearchCard({ brackets, addedSongs, setAddedSongs, chosenTracks, song, s
               .then(response => response.json())
               .then(newSong => {
                   setAddedSongs([...addedSongs, newSong])
+                // setChosenTracks([...chosenTracks, newSong])
               })
             }
 

@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import BracketRound from './BracketRound'
 import { BrowserRouter, useHistory, Switch, Route, Link } from 'react-router-dom'
 
-function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks, brackets }) {
+function NewBracketForm({ setChosenTracks, localHandleNewBracket, roundOneTracks, brackets }) {
 
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
 
     function handleSubmit(event) {
         event.preventDefault();
+        // setChosenTracks([])
     fetch("http://localhost:3000/brackets", {
       method: "POST",
       headers: {
@@ -16,7 +17,7 @@ function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks, b
       },
       body: JSON.stringify({
         name: name,
-        category: category
+        category: ""
       }),
     })
     .then(r => r.json())
@@ -35,7 +36,7 @@ function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks, b
 
   return (
     <div>        
-
+      <br></br><br></br>
     <form onSubmit={handleSubmit} className="new-bracket-form">
 
       <input 
@@ -47,12 +48,12 @@ function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks, b
 
       <br></br>
 
-      <input 
+      {/* <input 
         name="category"
         placeholder="Category..."
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
+        // value={category}
+        // onChange={(e) => setCategory(e.target.value)}
+      /> */}
 
       <br></br>
       <input  
@@ -66,7 +67,7 @@ function NewBracketForm({ chosenTracks, localHandleNewBracket, roundOneTracks, b
 
        {/* <Switch>
          <Route path="/brackets">  */}
-      <BracketRound roundOneTracks={roundOneTracks} />
+      {/* <BracketRound roundOneTracks={roundOneTracks} /> */}
         {/* </Route>
        </Switch> */}
 
