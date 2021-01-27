@@ -29,6 +29,14 @@ h1 {
 
 }
 
+.bracket-list {
+  display: grid;
+  grid-template-columns: repeat(8, 4fr);
+  grid-column-gap: 30px;
+
+  padding: 10px;  
+  justify-content:center;
+}
 .bracket-list-item {
   color: hotpink;
 }
@@ -308,6 +316,12 @@ button:hover {
   justify-content: center;
 }
 
+.prepare-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .button{
   position: relative;
   display: block;
@@ -320,7 +334,6 @@ button:hover {
   padding: 4px 40px;
   text-transform: uppercase;
   overflow: hidden;
-  /* transition: 1s all ease; */
   width: 70%;
   height: 20px;
   background: #1b1919;
@@ -368,24 +381,50 @@ textarea {
 }
 
 .delete-button {
-  /* position: relative; */
-  /* display: block; */
   color: white;
   font-size: 14px;
   font-family: "montserrat";
   text-decoration: none;
-  /* margin: 10px 0; */
   border: 2px solid #4296e6;
-  /* padding: 4px 40px; */
   text-transform: uppercase;
   overflow: hidden;
-  /* transition: 1s all ease; */
   width: 25px;
   height: 20px;
   background: #1b1919;
 }
 
-
-.search-bar-form {
-
+.replay-link {
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 10px 0;
+  border: 2px solid #4296e6;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  width: 70%;
+  height: 20px;
+  background: #1b1919;
 }
+
+.prepare-button{
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 10px 0;
+  border: 2px solid #4296e6;
+  /* padding: 4px 40px; */
+  text-transform: uppercase;
+  overflow: hidden;
+  width: 70%;
+  height: 20px;
+  background: #1b1919;
+  text-align: center;
+}
+

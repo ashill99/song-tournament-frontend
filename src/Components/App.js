@@ -28,7 +28,7 @@ function App() {
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
 
-  const accessToken = 'BQA8kPun0v5ysNNVfjQiZGF-0de80yEi-jIrUHjMCFrkgqjwlve3uNr-kxsd1hH2SMSNJ9ODvh2RD2z_C-1UAWgkzD0jd9FLwegdOU65DTGpKuWBsGOzKXFuB6ftLUydYXR15bS5U-2XoAPsH-3kVkMK-zD2'
+  const accessToken = 'BQDd9VHOByEwd9XiexfNE677XCNmChQ7TjQshPctf2VRhS02afhMntgZ4Qp3A2KmApoHG-oBqhmiCqr1ssA2G4A9xC5BR1ekdlnOOuk7zTcXXewUFfD8kOCvBlXrDeo62byt21nlERJI-IgSvu1tu-Y2SNWF'
 
 console.log(addedSongs)
 console.log(roundOneTracks)
@@ -37,7 +37,7 @@ console.log(roundOneTracks)
     fetch("http://localhost:3000/brackets")
         .then((response) => response.json())
         .then(setBrackets)
-    }, [])
+    },[])
 
     function handleNewBracket(newBracket) {
       // setBrackets([...brackets, newBracket])
@@ -138,6 +138,13 @@ function renderNewTrackList(id) {
   // setChosenTracks(updatedChosenTracks)
 }
 
+function renderOldBracketSongs(bracketObj) {
+  setRoundOneTracks(bracketObj)
+  console.log(roundOneTracks)
+}
+
+console.log(roundOneTracks)
+
   return (
     <div>
 
@@ -148,28 +155,21 @@ function renderNewTrackList(id) {
         </Route>
 
         <Route exact path="/brackets/:id">
-      <BracketRound roundOneTracks={roundOneTracks}/>
 
-      {/* <Bracket 
-            setNewTracks={setNewTracks}
-                bracket={bracket}
-                id={bracket.id}
-                key={bracket.id}
-                name={bracket.name}
-                category={bracket.category}
-                songs={bracket.songs}
-                
-                //     .map((track) => <SongCard track={track.name} 
-                // artists={track.artists} 
-                // image={track.image} 
-                // id={track.id} 
-                /> */}
+          <BracketRound roundOneTracks={roundOneTracks}/>
 
       </Route>
 
       <Route path="/brackets">
         <h2>Past Brackets</h2>
-        <BracketList brackets={brackets} setBrackets={setBrackets} getRoundOneTracks={getRoundOneTracks} setRoundOneTracks={setRoundOneTracks} roundOneTracks={roundOneTracks}/>
+        <BracketList 
+            brackets={brackets} 
+            setBrackets={setBrackets} 
+            getRoundOneTracks={getRoundOneTracks} 
+            setRoundOneTracks={setRoundOneTracks} 
+            roundOneTracks={roundOneTracks}
+            renderOldBracketSongs={renderOldBracketSongs}
+        />
       </Route>
 
       {/* <Route path="/search" */}

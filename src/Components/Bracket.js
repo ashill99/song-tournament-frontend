@@ -11,9 +11,13 @@ function Bracket({ bracket, setNewTracks, setRoundOneTracks, name, category, son
     return (
         <div className="old-bracket-card">
             <b className="old-bracket-name">{name}</b>
-            {eachSong}
-            <button id={id} onClick ={setNewTracks}>Prepare</button>
-            <Link to={`/brackets/${id}`}>Click here to replay</Link>
+                {/* {eachSong} */}
+            <div className="prepare-wrapper">
+                <button id={id} className="prepare-button" onClick={setNewTracks}>Prepare</button>
+            </div>
+            <div className="link-wrapper">
+                <Link to={`/brackets/${id}`} className="replay-link">Play</Link>
+            </div>
         </div>
     )
 }

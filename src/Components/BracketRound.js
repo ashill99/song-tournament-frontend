@@ -8,6 +8,26 @@ function BracketRound({ roundOneTracks }) {
     const [r3Winner, setR3Winner] = useState([])
     const [r4Winner, setR4Winner] = useState([])
 
+    function handleChampion() {
+        
+    }
+console.log(roundOneTracks)
+
+// const oldBracketRoundOne =  roundOneTracks.map((track) => track.songs)
+// console.log(oldBracketRoundOne)
+
+// const eachOldBracketSong = oldBracketRoundOne.map((track) => {
+//     return <SongCard 
+//     song={track}
+//     track={track.name} 
+//     artists={track.artists} 
+//     image={track.image} 
+//     id={track.id} 
+//     winner={r1Winner}
+//     setWinner={setR1Winner}
+//     />
+// })
+
     const eachR1Track = roundOneTracks.songs ? roundOneTracks.songs
     .map((track) => {
         return <SongCard 
@@ -80,6 +100,7 @@ console.log(r1Winner)
         <div className="bracket-card">
             <div>{/* First Round SongCards */}
             {eachR1Track}
+            {/* {eachOldBracketSong} */}
             </div>
         <div>
             {/* Round 2 */}
