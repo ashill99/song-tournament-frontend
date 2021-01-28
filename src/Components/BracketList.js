@@ -48,12 +48,10 @@ useEffect(() => {
             )
 
 
-
-    
-
     return (
         <div className="parent">
         <div className="bracket-list">{displayBracketList}
+
         </div>
         </div>
     )

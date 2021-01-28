@@ -29,6 +29,16 @@ h1 {
 
 }
 
+h1 .main-title {
+  text-shadow: 0 0 5px #fff,
+  0 0 20px #fff,
+  0 0 40px hotpink,
+  0 0 80px hotpink,
+  0 0 90px hotpink,
+  0 0 100px hotpink,
+  0 0 150px hotpink;
+}
+
 h2 {
 
   position: relative;
@@ -50,6 +60,26 @@ h2 {
 
 }
 
+.winners-list{
+    position: relative;
+    font-family: 'Montserrat', Arial, sans-serif;
+    /* font-size: calc(20px + 5vw); */
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* text-shadow: 0 0 0.15em #1da9cc; */
+    text-shadow: 0 0 5px #fff,
+    /* 0 0 10px #fff, */
+    0 0 20px #fff,
+    0 0 40px hotpink,
+    0 0 80px hotpink,
+    0 0 90px hotpink,
+    0 0 100px hotpink,
+    0 0 150px hotpink;
+  
+  }
+
 .bracket-list {
   display: grid;
   grid-template-columns: repeat(8, 4fr);
@@ -60,6 +90,7 @@ h2 {
 }
 .bracket-list-item {
   color: hotpink;
+  text-transform: uppercase;
 }
 
 .old-bracket-name {
@@ -73,7 +104,10 @@ h2 {
   0 0 150px #0ff;
 }
 
-.old-bracket-card {
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }
 
 code {
@@ -81,82 +115,43 @@ code {
     monospace;
 }
 
+.input {
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0px 0px 8px hotpink;
+  -moz-box-shadow: 0px 0px 8px hotpink
+  ;
+  -webkit-box-shadow: 0px 0px 8px hotpink
+; 
+}
+
+.input:focus { 
+  outline: none;
+  border: 1px solid #7bc1f7;
+  box-shadow: 0px 0px 8px #7bc1f7;
+  -moz-box-shadow: 0px 0px 8px #7bc1f7;
+  -webkit-box-shadow: 0px 0px 8px #7bc1f7;
+}​
+
 .artwork-image {
   width: 60px;
 }
 
 .round-img {
-  width: 60px;
+  width: 128px;
 }
 
 .parent {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
-
-
 }
 
-.round-one {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 100px 20px repeat(3, 1fr);
-  grid-column-gap: 11px;
-  grid-row-gap: 70px;
-  grid-area: 1 / 1 / 6 / 2;
-  display:flex;
-  width:200px;
-  list-style:none;
-  padding:0;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.round-two {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 100px 20px repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 70px; 
-  grid-area: 1 / 1 / 6 / 2;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width:200px;
-  list-style:none;
-  padding:0;
-}
-
-.round-three {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 100px 20px repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 70px; 
-  grid-area: 1 / 1 / 6 / 2;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width:200px;
-  list-style:none;
-  padding:0;
-}
-
-.round-four {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 100px 20px repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 70px;
-  grid-area: 1 / 4 / 6 / 5;
-  display:flex;
-}
-
-.round-five {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 100px 20px repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 70px;
+.bracket-image {
+  height: 40px;
+  width: 35px;
 }
 
 .song-card {
@@ -164,7 +159,9 @@ code {
   border: grey solid 1px;
   /* padding: 1rem; */
   width: 8rem;
-  height: 19rem;
+  height: 20rem;
+  /* height: auto; */
+  /* max-height: 60%; */
   display: inline-grid;
   /* margin: 1rem 2rem; */
   box-shadow:
@@ -175,85 +172,8 @@ code {
 }
 
 .song-card h3 {
-  color: hotpink
-}
+  color: hotpink;
 
-/* button {
-  list-style-type: none;
-  position: relative;
-  background-color: rgb(236, 233, 233);
-  border-radius: 25px;
-  display: center;
-  line-height: 10px;
-  padding: 10px;
-}
-
-.button {
-  list-style-type: none;
-  position: relative;
-  background-color: rgb(236, 233, 233);
-  border-radius: 25px;
-  display: center;
-  line-height: 10px;
-  padding: 10px;
-}
-
-button:hover {
-  list-style-type: none;
-  background-color: rgb(180, 152, 152);
-  transition: 0.5s;
-  padding: 13px;
-} */
-
-
-.song-card-one {  
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 8rem;
-  height: 19rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-.song-card-two {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 8rem;
-  height: 19rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-.song-card-three {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 8rem;
-  height: 19rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-.song-card-four {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 8rem;
-  height: 19rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-.song-card-five {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 8rem;
-  height: 19rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
 }
 
 .empty-songcard {
@@ -261,7 +181,7 @@ button:hover {
   border: grey solid 1px;
   padding: 1rem;
   width: 8rem;
-  height: 19rem;
+  height: 24rem;
   display: inline-grid;
   margin: 1rem 2rem;
   box-shadow:
@@ -280,7 +200,7 @@ button:hover {
   display: inline-grid;
   margin: 1rem 2rem;
   box-shadow:
-    
+  
     0 0 50px #fff,            /* outer white */
     -10px 0 80px #f0f,        /* outer left magenta */
     10px 0 80px #0ff;         /* outer right cyan */
@@ -293,46 +213,10 @@ button:hover {
   box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
   overflow: hidden;
 }
-  &:hover {
-    border-bottom: 2px solid rgb($r,$g,$b);
-    box-shadow: 0 0 20px rgba($r,$g,$b,.5);
+  .navbar:hover {
+    border-bottom: 2px solid blue;
+    box-shadow: 0 0 20px blue;
   }
-
-  &:hover li a {
-    color: rgb($r,$g,$b);
-    text-shadow: 0 0 10px rgba($r,$g,$b,.8);
-}
-  
-.round1-child {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 12rem;
-  height: 12rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-.round2-child {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 12rem;
-  height: 12rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-.round3-child {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 12rem;
-  height: 12rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
 
 .nav-wrapper {
   display: flex;
@@ -383,13 +267,34 @@ button:hover {
   background: rgba(27, 25, 25, 0.2);
 }
 
+.champion {
+  text-shadow: 0 0 5px #fff,
+  /* 0 0 10px #fff, */
+  0 0 20px #fff,
+  0 0 40px #0ff,
+  0 0 80px #0ff,
+  0 0 90px #0ff,
+  0 0 100px #0ff,
+  0 0 150px #0ff;
+}
+
 .form-submit {
   position: relative;
   display: block;
-  color: white;
-  font-size: 14px;
-  font-family: "montserrat";
   text-decoration: none;
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #fff,
+  0 0 20px #fff,
+  0 0 40px hotpink,
+  0 0 80px hotpink,
+  0 0 90px hotpink,
+  0 0 100px hotpink,
+  0 0 150px hotpink;
   margin: 10px 0;
   border: 2px solid #4296e6;
   padding: 4px 40px;
@@ -409,16 +314,24 @@ textarea {
 .start-bracket-link {
   position: relative;
   display: block;
-  color: white;
-  font-size: 14px;
-  font-family: "montserrat";
   text-decoration: none;
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #fff,
+  0 0 20px #fff,
+  0 0 40px hotpink,
+  0 0 80px hotpink,
+  0 0 90px hotpink,
+  0 0 100px hotpink,
+  0 0 150px hotpink;
   margin: 10px 0;
   border: 2px solid #4296e6;
   padding: 4px 40px;
-  text-transform: uppercase;
   overflow: hidden;
-  /* transition: 1s all ease; */
   width: 70%;
   height: 20px;
   background: #1b1919;
@@ -440,14 +353,23 @@ textarea {
 .replay-link {
   position: relative;
   display: block;
-  color: white;
-  font-size: 14px;
-  font-family: "montserrat";
   text-decoration: none;
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #fff,
+  0 0 20px #fff,
+  0 0 40px hotpink,
+  0 0 80px hotpink,
+  0 0 90px hotpink,
+  0 0 100px hotpink,
+  0 0 150px hotpink;
   margin: 10px 0;
   border: 2px solid #4296e6;
-  padding: 4px 10px;
-  text-transform: uppercase;
+  padding: 4px 40px;
   overflow: hidden;
   width: 70%;
   height: 20px;
@@ -457,18 +379,26 @@ textarea {
 .prepare-button{
   position: relative;
   display: block;
-  color: white;
-  font-size: 14px;
-  font-family: "montserrat";
   text-decoration: none;
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #fff,
+  0 0 20px #fff,
+  0 0 40px hotpink,
+  0 0 80px hotpink,
+  0 0 90px hotpink,
+  0 0 100px hotpink,
+  0 0 150px hotpink;
   margin: 10px 0;
   border: 2px solid #4296e6;
   /* padding: 4px 40px; */
-  text-transform: uppercase;
   overflow: hidden;
   width: 70%;
   height: 20px;
   background: #1b1919;
-  text-align: center;
 }
 

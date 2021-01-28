@@ -41,6 +41,7 @@ function NewBracketForm({ bracketId, setChosenTracks, localHandleNewBracket, rou
     <form onSubmit={handleSubmit} className="new-bracket-form">
 
       <input 
+      className="input"
         name="name"
         placeholder="Name..."
         value={name}

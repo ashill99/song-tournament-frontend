@@ -10,6 +10,8 @@ import NewBracketItem from './NewBracketItem'
 import BracketRound from './BracketRound'
 import HomePage from './HomePage'
 import Bracket from './Bracket'
+import PopUp from './PopUp'
+import TopBangers from './TopBangers'
 
 function App() {
 
@@ -21,8 +23,11 @@ function App() {
   const [addedSongs, setAddedSongs] = useState([])
   const [bracketId, setBracketId] = useState('')
   const [roundOneTracks, setRoundOneTracks] = useState([])
+  // const [searchLength, setSearchLength] = useState(0)
+  const [search, setSearch] = useState(0)
+  const [seen, setSeen] = useState(false)
 
-  const accessToken = 'BQDNca-94E6IQml44GZ1eXgP0VvUBQyB4uX0uQohMaeo9vYjw21iw8D0CWXLPD0Xa5Wpj1AodmFs6TNNCbvKSUrM6VEgs371a5rEawnHwJzZWfmmsnabd-MDHNzlN65_dXHUp4SG-KcJHRodgspQtVwuZ1aU'
+  const accessToken = 'BQCS9fkyXpGaMAzYUf2CHsTdbgodjueBXj92lSz8hBFN1PHd9pRVeW_CYPpFCwchS7gE7CuJFbXrSd-p1yr-PTWozyAnElf36Xa5DxQ0Qy24PqIF7eBt5tMM1zjtvpHiOhyI0jowioZLfNAekXb42yvZhkLw'
 
   useEffect(() => {
     fetch("http://localhost:3000/brackets")
@@ -133,11 +138,20 @@ function onUpdateSong() {
         body: JSON.stringify(updateObj),
       })
         .then(r => r.json())
-        .then(setSongs);
+        .then(setRoundOneTracks);
       }
 
 
 console.log(roundOneTracks)
+
+function togglePop() {
+  setSeen(!seen)
+  console.log(seen)
+  return (
+    <PopUp seen={seen} setSeen={setSeen} /> 
+    
+  )
+}
 
   return (
     <div>
@@ -155,6 +169,9 @@ console.log(roundOneTracks)
               onUpdateSong={onUpdateSong}
               setAddedSongs={setAddedSongs}
               handleUpdateVotes={handleUpdateVotes}
+              seen={seen}
+              setSeen={setSeen}
+              togglePop={togglePop}
           />
 
         </Route>
@@ -188,10 +205,14 @@ console.log(roundOneTracks)
               addedSongs={addedSongs} 
               deleteTrack={deleteTrack}
           />
+          <br></br>
 
           <SearchBar 
               searchForTrack={searchForTrack}
+              search={search}
+              setSearch={setSearch}
           />
+          <br></br><br></br>
 
         <SearchContainer 
                 brackets={brackets} 
@@ -203,6 +224,8 @@ console.log(roundOneTracks)
                 localHandleNewBracket={handleNewBracket} 
                 chosenTracks={chosenTracks} 
                 roundOneTracks={roundOneTracks}
+                search={search}
+                setSearch={setSearch}
               /> 
         </Route>
 

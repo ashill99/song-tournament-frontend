@@ -36,10 +36,10 @@ function SearchCard({brackets, addedSongs, setAddedSongs, chosenTracks, song, se
     return(
 
         <div className="song-card">
-            <h3>{name}</h3>
-            <p>{artists}</p>
-            <img src={image} height="100px" alt={name}></img>
-            <button id={spotify_id} onClick={handleChooseTrack}>Choose Track </button>
+            <h3>{name.length < 28 ? name : name.substring(0,24) + "..."} </h3>
+            <b>{artists.length < 28 ? artists : artists.substring(0,24) + "..."}</b>
+            <img className="round-img" src={image} alt={name}></img>
+            <button className="choose-track" id={spotify_id} onClick={handleChooseTrack}>Choose Track </button>
         </div>
     )
 }

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function SearchBar({ searchForTrack }) {
+function SearchBar({ search, setSearch, searchForTrack }) {
 
 function handleNewSearch(e) {
     e.preventDefault()
     searchForTrack(e.target.value)
+    // setSearch("")
+    console.log(e.target.value.length)
+    setSearch(e.target.value.length)
+    setSearch(e.target.value.length)
+    console.log(search)
 }
 
     return (
@@ -14,6 +19,7 @@ function handleNewSearch(e) {
           className="input"
           id="addInput"
           placeholder="Search Tracks..."
+          // value={search}
           onChange={handleNewSearch}
         />
       </form>   

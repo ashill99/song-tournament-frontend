@@ -4,7 +4,7 @@ function HomePage() {
 
     return (
         <div className="home-page">
-            <h1> Welcome <br></br>
+            <h1 className="main-title"> Welcome <br></br>
                     to <br></br>
                     ⚡ Banger ⚡ <br></br>
                     Bracket </h1>
@@ -13,6 +13,7 @@ function HomePage() {
             </p>
             <p>Created by Adam Shilling & Mike Smith </p>
             <p>2021</p>
+            <p>🎵</p>
         </div>
     )
 }

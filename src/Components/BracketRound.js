@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import SongCard from './SongCard'
+import banger from './banger.png'
+import PopUp from './PopUp'
 
-function BracketRound({handleUpdateVotes, setAddedSongs, onUpdateSong, roundOneTracks }) {
+function BracketRound({togglePop, handleUpdateVotes, setAddedSongs, onUpdateSong, roundOneTracks }) {
 
     const [r1Winner, setR1Winner] = useState([])
     const [r2Winner, setR2Winner] = useState([])
@@ -29,7 +31,21 @@ console.log(roundOneTracks)
 // })
 
 // const bracketWinners = 
-const bracketWinners = roundOneTracks.songs ? roundOneTracks.songs
+
+// const songVotesInOrder = songs.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
+// console.log(songVotesInOrder)
+
+// const mostVotes = songVotesInOrder.map((song) => {
+//     return ( 
+//         <div>
+//             <p>{song.name}: {song.votes} wins</p>
+//         </div>
+//     )
+// })
+
+const sortedWinners = roundOneTracks.songs ? roundOneTracks.songs.sort((a, b) => (a.votes < b.votes) ? 1 : -1) : null
+
+const bracketWinners = roundOneTracks.songs ? sortedWinners
     .map((track) => {return (<div> {track.name}: {track.votes} wins
     </div>)}
     ) : null 
@@ -119,12 +135,12 @@ console.log(r2Winner)
 console.log(r1Winner)
 
     return (
-<>
+        <div>
         {displayRightTitle()}
         <div className="bracket-card">
-            <div>{/* First Round SongCards */}
+            <div>
+            {/* First Round SongCards */}
             {eachR1Track}
-            {/* {eachOldBracketSong} */}
             </div>
         <div>
             {/* Round 2 */}
@@ -156,18 +172,26 @@ console.log(r1Winner)
             {r2Winner[1] ? eachR3Track[1] : null}
         </div>
         </div>
+        {r3Winner[0] ? <PopUp /> : null}
         {/* Final Round */}
         <div>
         <div className="empty-songcard-champion">
-            <p>Banger Bracket Champion</p>
+            <p className="champion">Banger Bracket Champion</p>
             {r3Winner[0] ? eachR4Track[0] : null}
+        <div>
         </div>
         </div>
         </div>
 
-        <div>
-            <h3>Winners:</h3>{bracketWinners} </div>
-        </>
+        <div><br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+            <h3 className="winners-list">Winners: </h3>{bracketWinners} 
+        </div>
+    </div>
+    </div>
     )
 }
 
