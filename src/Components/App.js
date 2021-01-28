@@ -27,7 +27,7 @@ function App() {
   const [search, setSearch] = useState(0)
   const [seen, setSeen] = useState(false)
 
-  const accessToken = 'BQCS9fkyXpGaMAzYUf2CHsTdbgodjueBXj92lSz8hBFN1PHd9pRVeW_CYPpFCwchS7gE7CuJFbXrSd-p1yr-PTWozyAnElf36Xa5DxQ0Qy24PqIF7eBt5tMM1zjtvpHiOhyI0jowioZLfNAekXb42yvZhkLw'
+  const accessToken = 'BQBh4Y0wvuK4k_PXkmS19VUGqU6WyjB1qFh_pN0Z1Lzaa3NJA8myWNCjIy-n6Tl5PlrefDvY80wYUIW4WHFzbG0eEPvY86CeLpQdKX1irsezELNBFMJfzIe2VNcZ7b71-iyANxNgOHb36ztXov7Oqz_MZpjr'
 
   useEffect(() => {
     fetch("http://localhost:3000/brackets")
